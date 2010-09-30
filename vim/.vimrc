@@ -81,6 +81,25 @@ nnoremap <leader>s <C-w>v<C-w>l " s = Split window and swap to it.
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR> " W = Strip all trailing whitespace.
 nnoremap <leader>sortcss ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR> " sortcss = Sort all CSS properties.
 nnoremap <leader>v V`] " v = Visually selects just-pasted text.
+nnoremap <leader>n :call NumberToggle()<CR> " n = toggles relative line numbers on & off.
 
 " Python Specifics
 setlocal makeprg=python\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"
+
+""""""""""""
+" Functions
+""""""""""""
+
+function! NumberToggle()
+" Toggles relative line numbers in a 
+" backwards compatible way.
+    if exists("&rnu")
+        if &number
+            setlocal relativenumber
+        else
+            setlocal number
+        endif
+    else
+        setlocal nonumber
+    endif
+endfunction 
