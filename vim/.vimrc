@@ -44,6 +44,12 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 
+" Omnicomplete
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
 " Text Width & Wrapping Settings
 set wrap
 set textwidth=79
