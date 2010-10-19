@@ -1,0 +1,10 @@
+Vim Config
+----------
+
+ln -s ./dotfiles/vim/.vimrc ~/.vimrc
+ln -s ./dotfiles/vim/.vim/ ~/.vim
+
+RadioTray Bookmarks
+-------------------
+
+ln -s ./dotfiles/radiotray/bookmarks.xml ~/.local/share/radiotray/bookmarks.xml
