@@ -15,16 +15,18 @@ au BufNewFile,BufRead *.wsgi set filetype=python " *.wsgi -> Python
 " Core/Random Settings
 let mapleader = ","
 
-" Remaps
+" Key Remaps
 inoremap <F1> <ESC> " Remaps stupid help key to Esc
 nnoremap <F1> <ESC> " in all modes.
 vnoremap <F1> <ESC>
+
+" Tab/Window Switching Remaps
 nnoremap <C-h> <C-w>h " Next four lines control switching split
 nnoremap <C-j> <C-w>j " windows. Remap Caps lock to control to 
 nnoremap <C-k> <C-w>k " make this even easier.
 nnoremap <C-l> <C-w>l
-"nnoremap j gj " More sensible caret
-"nnoremap k gk " movement in normal mode.
+nnoremap <C-left> :tabp<CR> " Previous tab.
+nnoremap <C-right> :tabn<CR> " Next tab.
 
 " Don't need vi compatability; modelines is a security flaw.
 set nocompatible
