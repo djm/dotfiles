@@ -19,6 +19,10 @@ let mapleader = ","
 inoremap <F1> <ESC> " Remaps stupid help key to Esc
 nnoremap <F1> <ESC> " in all modes.
 vnoremap <F1> <ESC>
+" Why am I so shit at pressing shift FFS?
+inoremap :W :w 
+nnoremap :W :w
+vnoremap :W :w
 
 " Tab/Window Switching Remaps
 nnoremap <C-h> <C-w>h " Next four lines control switching split
