@@ -38,8 +38,10 @@ set modelines=0
 
 " File Settings
 set encoding=utf-8
-set undofile " Creates .un~ files that contain undo information.
-set undodir=~/.vim-undo/ " Sets location of undo files directory.
+if has("undofile")
+    set undofile " Creates .un~ files that contain undo information.
+    set undodir=~/.vim-undo/ " Sets location of undo files directory.
+endif
 au FocusLost * :wa " Saves file automatically on losing focus.
 
 " Tab/Indent Settings
@@ -60,7 +62,9 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-set colorcolumn=85
+if has("colorcolumn")
+    set colorcolumn=85
+endif
 
 " Colour & Theme Settings
 set t_Co=256 " 256 colours support. NB: Before theme.
@@ -71,7 +75,9 @@ colorscheme molokai
 set cursorline " Highlights current line.
 set hidden 
 set laststatus=2 " Permanently enables status line.
-set relativenumber " Shows relative to cursor line numbers instead of actual.
+if has("relativenumber")
+    set relativenumber " Shows relative to cursor line numbers instead of actual.
+endif
 set ruler " Enables the ruler.
 set scrolloff=5 " Acts as a line buffer between the top/bottom of the screen.
 set showmode " Shows which mode you are in.
