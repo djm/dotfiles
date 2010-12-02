@@ -1,5 +1,4 @@
 " Requires vim 7.3+
-
 filetype off
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
@@ -38,7 +37,7 @@ set modelines=0
 
 " File Settings
 set encoding=utf-8
-if has("undofile")
+if exists("&undofile")
     set undofile " Creates .un~ files that contain undo information.
     set undodir=~/.vim-undo/ " Sets location of undo files directory.
 endif
@@ -62,7 +61,7 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-if has("colorcolumn")
+if exists("&colorcolumn")
     set colorcolumn=85
 endif
 
@@ -75,7 +74,7 @@ colorscheme molokai
 set cursorline " Highlights current line.
 set hidden 
 set laststatus=2 " Permanently enables status line.
-if has("relativenumber")
+if exists("&relativenumber")
     set relativenumber " Shows relative to cursor line numbers instead of actual.
 endif
 set ruler " Enables the ruler.
