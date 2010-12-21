@@ -106,6 +106,7 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR> " W = Strip all trailing whites
 nnoremap <leader>sortcss ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR> " sortcss = Sort all CSS properties.
 nnoremap <leader>v V`] " v = Visually selects just-pasted text.
 nnoremap <leader>n :call NumberToggle()<CR> " n = toggles relative line numbers on & off.
+nnoremap <leader>F :update<CR>:e ++ff=dos<CR>:setlocal ff=unix<CR>:w<CR> " Fixes ^M line endings.
 
 " Python Specifics
 setlocal makeprg=python\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"
