@@ -18,7 +18,6 @@ let mapleader = ","
 inoremap <F1> <ESC> " Remaps stupid help key to Esc
 nnoremap <F1> <ESC> " in all modes.
 vnoremap <F1> <ESC>
-" Why am I so shit at pressing shift FFS?
 inoremap :W :w 
 nnoremap :W :w
 vnoremap :W :w
@@ -86,6 +85,9 @@ set wildmode=list:longest " Tells the above how to act.
 set wildmenu " Improves vims file opening auto complete.
 set wildignore=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*$py.class,*.class " Get out of my wildmenu!
 syntax enable " Enable syntax highlighting!
+
+" Paste settings
+set pastetoggle=<F2>
 
 " Search
 nnoremap / /\v
