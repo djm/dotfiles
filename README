@@ -1,3 +1,14 @@
+Bash Config
+-----------
+
+ln -s ./dotfiles/bash/.inputrc ~/.inputrc
+
+Git Config
+----------
+
+ln -s ./dotfiles/git/.gitconfig ~/.gitconfig
+
+
 Vim Config
 ----------
 
