@@ -30,6 +30,9 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-left> :tabp<CR> " Previous tab.
 nnoremap <C-right> :tabn<CR> " Next tab.
 
+" 3rd Party Plugin Mapping
+nnoremap <F5> :GundoToggle<CR>
+
 " Don't need vi compatability; modelines is a security flaw.
 set nocompatible
 set modelines=0
@@ -109,9 +112,6 @@ nnoremap <leader>sortcss ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR> " sortcss = Sor
 nnoremap <leader>v V`] " v = Visually selects just-pasted text.
 nnoremap <leader>n :call NumberToggle()<CR> " n = toggles relative line numbers on & off.
 nnoremap <leader>F :update<CR>:e ++ff=dos<CR>:setlocal ff=unix<CR>:w<CR> " Fixes ^M line endings.
-
-" Python Specifics
-setlocal makeprg=python\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"
 
 """"""""""""
 " Functions
