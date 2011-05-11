@@ -5,7 +5,11 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Aliases
 alias ls='ls --color=auto'
+alias ack-grep='ack'
+
+
 PS1='[\u@\h \W]\$ '
 
 ##################################################
