@@ -1,6 +1,7 @@
 Bash Config
 -----------
 
+ln -s ./dotfiles/bash/.bashrc ~/.bashrc
 ln -s ./dotfiles/bash/.inputrc ~/.inputrc
 
 Git Config
