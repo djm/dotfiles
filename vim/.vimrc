@@ -64,7 +64,7 @@ set wrap
 set textwidth=79
 set formatoptions=qrn1
 if exists("&colorcolumn")
-    set colorcolumn=85
+    set colorcolumn=79
 endif
 
 " Colour & Theme Settings
