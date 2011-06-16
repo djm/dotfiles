@@ -12,3 +12,9 @@
   email = mail@djm.org.uk
 
 
+[color]
+	diff = auto
+	branch = auto
+	status = auto
+[core]
+	excludesfile = ~/.gitignore
