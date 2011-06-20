@@ -91,6 +91,11 @@ PROMPT_COMMAND=bash_prompt_command
 bash_prompt
 unset bash_prompt
 
+# Python
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
 export WORKON_HOME=$HOME/.virtualenvs
-source /usr/bin/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper.sh
+
+# Ruby
+export GEM_HOME=$HOME/.gems
+export PATH=$PATH:$GEM_HOME/bin:/usr/lib/ruby/gems/1.9.1/bin/
