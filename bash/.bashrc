@@ -99,3 +99,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 # Ruby
 export GEM_HOME=$HOME/.gems
 export PATH=$PATH:$GEM_HOME/bin:/usr/lib/ruby/gems/1.9.1/bin/
+
+# Aptitude
+
+source ~/dotfiles/apt/apt_completion.sh
