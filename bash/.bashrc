@@ -97,9 +97,9 @@ export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
 # Ruby
-export GEM_HOME=$HOME/.gems
-export PATH=$PATH:$GEM_HOME/bin:/usr/lib/ruby/gems/1.9.1/bin/
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # Aptitude
 
 source ~/dotfiles/apt/apt_completion.sh
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
