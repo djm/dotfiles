@@ -10,7 +10,7 @@ au BufNewFile,BufRead *.sass set filetype=sass " *.sass -> SASS
 au BufNewFile,BufRead *.scss set filetype=scss " *.scss -> SCSS (New SASS)
 au BufNewFile,BufRead *.less set filetype=css " *.less -> CSS
 au BufNewFile,BufRead *.wsgi set filetype=python " *.wsgi -> Python
-au BufNewFile,BufRead Vagrantfile set filetype=ruby " *.wsgi -> Python
+au BufNewFile,BufRead Vagrantfile,*.pp set filetype=ruby " *.wsgi -> Python
 
 " Core/Random Settings
 let mapleader = ","

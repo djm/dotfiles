@@ -7,9 +7,10 @@
 
 # Aliases
 alias ls='ls --color=auto'
-alias ack-grep='ack'
+alias ack='ack-grep'
 alias clearpyc='find . -name "*.pyc" -exec rm {} \;'
-
+alias serve='python -m SimpleHTTPServer 8000'
+alias disable-touchpad='xinput set-int-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 8 0'
 
 PS1='[\u@\h \w]\$ '
 
@@ -97,9 +98,7 @@ export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
 # Ruby
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # Aptitude
-
 source ~/dotfiles/apt/apt_completion.sh
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
