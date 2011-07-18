@@ -102,3 +102,6 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # Aptitude
 source ~/dotfiles/apt/apt_completion.sh
+
+# theTeam's Puppet Build
+export PUPPET_MODULES_PATH=$HOME/src/vagrant-django-template/modules
