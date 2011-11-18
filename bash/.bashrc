@@ -9,10 +9,11 @@
 alias ls='ls --color=auto'
 alias ack='ack-grep'
 alias clearpyc='find . -name "*.pyc" -exec rm {} \;'
-alias serve='python -m SimpleHTTPServer 8000'
+alias serve='python -m SimpleHTTPServer'
 alias disable-touchpad='xinput set-int-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 8 0'
 
 PS1='[\u@\h \w]\$ '
+HISTSIZE=2000
 
 ##################################################
 # Fancy PWD display function
@@ -105,3 +106,6 @@ source ~/dotfiles/apt/apt_completion.sh
 
 # theTeam's Puppet Build
 export PUPPET_MODULES_PATH=$HOME/src/vagrant-django-template/modules
+
+# Fuck everything about java
+export CATALINA_HOME=/opt/apache-tomcat-6.0.33
