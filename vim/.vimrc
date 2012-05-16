@@ -22,6 +22,15 @@ vnoremap <F1> <ESC>
 inoremap :W :w 
 nnoremap :W :w
 vnoremap :W :w
+" Disable arrow keys - raaah
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
 
 " Tab/Window Switching Remaps
 nnoremap <C-h> <C-w>h " Next four lines control switching split
@@ -66,14 +75,18 @@ set textwidth=79
 set formatoptions=qrn1
 if exists("&colorcolumn")
     set colorcolumn=79
+    set colorcolumn=120
 endif
 
 " Colour & Theme Settings
 set t_Co=256 " 256 colours support. NB: Before theme.
 colorscheme molokai
 "colorscheme zenburn
+match Todo /\s\+$/ "Highlight trailing whitespace
 
 " Display Settings
+"
+set fuopt=maxvert,maxhorz
 set cursorline " Highlights current line.
 set hidden 
 set laststatus=2 " Permanently enables status line.
@@ -113,6 +126,13 @@ nnoremap <leader>sortcss ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR> " sortcss = Sor
 nnoremap <leader>v V`] " v = Visually selects just-pasted text.
 nnoremap <leader>n :call NumberToggle()<CR> " n = toggles relative line numbers on & off.
 nnoremap <leader>F :update<CR>:e ++ff=dos<CR>:setlocal ff=unix<CR>:w<CR> " Fixes ^M line endings.
+
+" Syntastic Settings
+let g:syntastic_enable_signs=1
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'active_filetypes': [],
+                           \ 'passive_filetypes': ['html'] }
+let g:syntastic_auto_loc_list=1
 
 """"""""""""
 " Functions
