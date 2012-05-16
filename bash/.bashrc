@@ -6,14 +6,13 @@
 [[ $- != *i* ]] && return
 
 # Aliases
-alias ls='ls --color=auto'
 alias ack='ack-grep'
 alias clearpyc='find . -name "*.pyc" -exec rm {} \;'
 alias serve='python -m SimpleHTTPServer'
-alias disable-touchpad='xinput set-int-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 8 0'
 
 PS1='[\u@\h \w]\$ '
 HISTSIZE=2000
+export CLICOLOR=1
 
 ##################################################
 # Fancy PWD display function
@@ -94,18 +93,13 @@ bash_prompt
 unset bash_prompt
 
 # Python
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2
-export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
+
+# Node
+export NODE_PATH="$NODE_PATH:/usr/local/lib/node_modules/"
 
 # Ruby
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # Aptitude
 source ~/dotfiles/apt/apt_completion.sh
-
-# theTeam's Puppet Build
-export PUPPET_MODULES_PATH=$HOME/src/vagrant-django-template/modules
-
-# Fuck everything about java
-export CATALINA_HOME=/opt/apache-tomcat-6.0.33

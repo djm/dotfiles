@@ -87,7 +87,6 @@ match Todo /\s\+$/ "Highlight trailing whitespace
 
 " Display Settings
 "
-set fuopt=maxvert,maxhorz
 set cursorline " Highlights current line.
 set hidden 
 set laststatus=2 " Permanently enables status line.
