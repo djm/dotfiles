@@ -5,12 +5,13 @@ call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
 
 " Add filetypes to syntax highlighting
-au BufNewFile,BufRead *.dump set filetype=sql " *.dump -> SQL
-au BufNewFile,BufRead *.sass set filetype=sass " *.sass -> SASS
-au BufNewFile,BufRead *.scss set filetype=scss " *.scss -> SCSS (New SASS)
-au BufNewFile,BufRead *.less set filetype=css " *.less -> CSS
-au BufNewFile,BufRead *.wsgi set filetype=python " *.wsgi -> Python
-au BufNewFile,BufRead Vagrantfile,*.pp set filetype=ruby " *.wsgi -> Python
+au BufNewFile,BufRead *.dump set filetype=sql
+au BufNewFile,BufRead *.sass set filetype=sass
+au BufNewFile,BufRead *.scss set filetype=scss
+au BufNewFile,BufRead *.less set filetype=css
+au BufNewFile,BufRead *.wsgi set filetype=python
+au BufNewFile,BufRead Vagrantfile,*.pp set filetype=ruby
+au BufNewFile,BufRead *.j2 set filetype=html
 
 " Core/Random Settings
 let mapleader = ","
