@@ -5,6 +5,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+export LC_ALL="en_GB.UTF-8"
+export LANG="en_GB.UTF-8"
+
 # Aliases
 alias nano='vim'
 alias clearpyc='find . -name "*.pyc" -exec rm {} \;'
