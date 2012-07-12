@@ -6,11 +6,22 @@
 [[ $- != *i* ]] && return
 
 # Aliases
-alias ack='ack-grep'
+alias nano='vim'
 alias clearpyc='find . -name "*.pyc" -exec rm {} \;'
 alias serve='python -m SimpleHTTPServer'
 
+# Bash completion (Linux)
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+# Bash completion (Mac OSX)
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
+
 PS1='[\u@\h \w]\$ '
+PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] \$\[\033[00m\] '
 HISTSIZE=2000
 export CLICOLOR=1
 

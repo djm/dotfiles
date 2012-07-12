@@ -7,14 +7,21 @@
   type = cat-file -t
   dump = cat-file -p
 
-[user]
-  name = Darian Moody
-  email = mail@djm.org.uk
-
-
 [color]
 	diff = auto
 	branch = auto
 	status = auto
+
 [core]
 	excludesfile = ~/.gitignore
+
+[merge]
+	ff = false
+
+[rerere]
+	enabled = 1
+
+[user]
+  name = Darian Moody
+  email = mail@djm.org.uk
+
