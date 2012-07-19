@@ -42,7 +42,10 @@ nnoremap <C-left> :tabp<CR> " Previous tab.
 nnoremap <C-right> :tabn<CR> " Next tab.
 
 " 3rd Party Plugin Mapping
-nnoremap <F5> :GundoToggle<CR>
+nnoremap <F5> :GundoToggle<CR> " gundo
+let g:ctrlp_map = '<c-p>' " ctrl-p
+let g:ctrlp_cmd = 'CtrlP' " ctrl-p
+let g:ctrlp_working_path_mode = 2
 
 " Don't need vi compatability; modelines is a security flaw.
 set nocompatible
