@@ -10,7 +10,7 @@ au BufNewFile,BufRead *.sass set filetype=sass
 au BufNewFile,BufRead *.scss set filetype=scss
 au BufNewFile,BufRead *.less set filetype=css
 au BufNewFile,BufRead *.wsgi set filetype=python
-au BufNewFile,BufRead Vagrantfile,*.pp set filetype=ruby
+au BufNewFile,BufRead Vagrantfile set filetype=ruby
 au BufNewFile,BufRead *.j2 set filetype=html
 
 " Core/Random Settings

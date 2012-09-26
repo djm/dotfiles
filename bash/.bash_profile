@@ -105,15 +105,3 @@ bash_prompt() {
 PROMPT_COMMAND=bash_prompt_command
 bash_prompt
 unset bash_prompt
-
-# Python
-source /usr/local/bin/virtualenvwrapper.sh
-
-# Node
-export NODE_PATH="$NODE_PATH:/usr/local/lib/node_modules/"
-
-# Ruby
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-# Aptitude
-source ~/dotfiles/apt/apt_completion.sh
