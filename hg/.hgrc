@@ -1,0 +1,25 @@
+[web]
+cacerts = /etc/hg-ca-roots.pem
+
+[extensions]
+color = 
+pager = 
+fetch = 
+rebase = 
+graphlog = 
+hgshelve=~/.hgext/hgshelve.py
+hgflow=~/.hgext/hgflow.py
+
+[color]
+mode = auto
+
+[pager]
+pager = LESS='FSRX' less
+
+[ui]
+hgignore = ~/.hgignore
+merge = vimdiff
+username = Darian Moody <mail@djm.org.uk>
+verbose = True
+
+[auth]
