@@ -10,7 +10,7 @@ au BufNewFile,BufRead *.sass set filetype=sass
 au BufNewFile,BufRead *.scss set filetype=scss
 au BufNewFile,BufRead *.less set filetype=css
 au BufNewFile,BufRead *.wsgi set filetype=python
-au BufNewFile,BufRead Vagrantfile,*.pp set filetype=ruby
+au BufNewFile,BufRead Vagrantfile set filetype=ruby
 au BufNewFile,BufRead *.j2 set filetype=html
 
 " Core/Random Settings
@@ -33,6 +33,7 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
+
 " Tab/Window Switching Remaps
 nnoremap <C-h> <C-w>h " Next four lines control switching split
 nnoremap <C-j> <C-w>j " windows. Remap Caps lock to control to 
@@ -43,8 +44,8 @@ nnoremap <C-right> :tabn<CR> " Next tab.
 
 " 3rd Party Plugin Mapping
 nnoremap <F5> :GundoToggle<CR> " gundo
-let g:ctrlp_map = '<c-p>' " ctrl-p
-let g:ctrlp_cmd = 'CtrlP' " ctrl-p
+let g:ctrlp_map = '<leader>p' " ctrl-p
+let g:ctrlp_cmd = 'CtrlPMixed' " ctrl-p
 let g:ctrlp_working_path_mode = 2
 
 " Don't need vi compatability; modelines is a security flaw.
