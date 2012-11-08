@@ -15,6 +15,12 @@ Git Config
 ln -s ~/dotfiles/git/.gitconfig ~/.gitconfig
 ln -s ~/dotfiles/git/.gitignore ~/.gitignore
 
+Mercurial Config
+----------------
+ln -s ~/dotfiles/hg/.hgext ~/.hgext
+# We copy instead of link as we tend to store auth details in hgrc.
+cp ~/dotfiles/hg/.hgrc ~/.hgrc
+
 Vim Config
 ----------
 
