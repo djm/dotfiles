@@ -6,7 +6,7 @@ git clone git@github.com:djm/dotfiles.git ~/dotfiles/
 Bash Config
 -----------
 
-ln -s ~/dotfiles/bash/.bashrc ~/{os}.bashrc
+ln -s ~/dotfiles/bash/{linux|macosx}.bashrc ~/.bashrc
 ln -s ~/dotfiles/bash/.inputrc ~/.inputrc
 
 Git Config
