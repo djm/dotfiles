@@ -10,18 +10,13 @@ export LANG="en_GB.UTF-8"
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 # Aliases
-#alias nano='vim'
-alias clearpyc='find . -name "*.pyc" -exec rm {} \;'
+alias nano='vim'
+alias clearpyc='find . -name "*.pyc" -exec rm -rf {} \;'
 alias serve='python -m SimpleHTTPServer'
 
 # Bash completion (Linux)
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
-fi
-
-# Bash completion (Mac OSX)
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
 fi
 
 PS1='[\u@\h \w]\$ '
@@ -108,4 +103,15 @@ bash_prompt
 unset bash_prompt
 
 # Python
-source /usr/local/bin/virtualenvwrapper.sh
+VIRTUALENV_WRAPPER='/usr/local/bin/virtualenvwrapper.sh'
+if [ -f $VIRTUALENV_WRAPPER ]
+then
+    source $VIRTUALENV_WRAPPER
+fi
+
+# Heroku Toolbelt
+HEROKU_TOOLBELT='/usr/local/heroku/bin' 
+if [ -f $HEROKU_TOOLBELT ]
+then
+    export PATH="$HEROKU_TOOLBELT:$PATH"
+fi
