@@ -42,11 +42,12 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-left> :tabp<CR> " Previous tab.
 nnoremap <C-right> :tabn<CR> " Next tab.
 
-" 3rd Party Plugin Mapping
+" 3rd Party Plugin Mapping/Settings
 nnoremap <F5> :GundoToggle<CR> " gundo
 let g:ctrlp_map = '<leader>p' " ctrl-p
 let g:ctrlp_cmd = 'CtrlPMixed' " ctrl-p
 let g:ctrlp_working_path_mode = 2
+let g:yankring_history_file = '.yankring_history'
 
 " Don't need vi compatability; modelines is a security flaw.
 set nocompatible
