@@ -13,6 +13,7 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 alias nano='vim'
 alias clearpyc='find . -name "*.pyc" -exec rm -rf {} \;'
 alias serve='python -m SimpleHTTPServer'
+alias jsonify='python -mjson.tool'
 alias ack=ack-grep
 
 # Bash completion (Linux)
