@@ -1,7 +1,18 @@
-" Requires vim 7.3+
+set nocompatible
 filetype off
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+
+" setup and run vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+Bundle 'mileszs/ack.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'sjl/gundo.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'YankRing.vim'
+
 filetype plugin indent on
 
 " Add filetypes to syntax highlighting
@@ -137,6 +148,10 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': ['html'] }
 let g:syntastic_auto_loc_list=1
+let g:syntastic_python_checker = "flake8"
+let g:syntastic_python_flake8_args='--ignore=E126'
+" E126: line continuation
+" E501: greater than 80 chars (I've got a column for this, readability wins)
 
 """"""""""""
 " Functions
