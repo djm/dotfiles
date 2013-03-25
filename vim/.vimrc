@@ -53,15 +53,7 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-left> :tabp<CR> " Previous tab.
 nnoremap <C-right> :tabn<CR> " Next tab.
 
-" 3rd Party Plugin Mapping/Settings
-nnoremap <F5> :GundoToggle<CR> " gundo
-let g:ctrlp_map = '<leader>p' " ctrl-p
-let g:ctrlp_cmd = 'CtrlPMixed' " ctrl-p
-let g:ctrlp_working_path_mode = 2
-let g:yankring_history_file = '.yankring_history'
-
-" Don't need vi compatability; modelines is a security flaw.
-set nocompatible
+" modelines is a security flaw.
 set modelines=0
 
 " File Settings
@@ -118,6 +110,12 @@ set wildmenu " Improves vims file opening auto complete.
 set wildignore=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*$py.class,*.class " Get out of my wildmenu!
 syntax enable " Enable syntax highlighting!
 
+" Turn off visual and sound bells
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif
+
 " Paste settings
 set pastetoggle=<F2>
 
@@ -142,7 +140,16 @@ nnoremap <leader>v V`] " v = Visually selects just-pasted text.
 nnoremap <leader>n :call NumberToggle()<CR> " n = toggles relative line numbers on & off.
 nnoremap <leader>F :update<CR>:e ++ff=dos<CR>:setlocal ff=unix<CR>:w<CR> " Fixes ^M line endings.
 
-" Syntastic Settings
+" 3rd Party Plugin Mapping/Settings
+" - gundo
+nnoremap <F5> :GundoToggle<CR> " gundo
+" - ctrl-p
+let g:ctrlp_map = '<leader>p' " ctrl-p
+let g:ctrlp_cmd = 'CtrlPMixed' " ctrl-p
+let g:ctrlp_working_path_mode = 2
+" - yankring
+let g:yankring_history_file = '.yankring_history'
+" - syntastic
 let g:syntastic_enable_signs=1
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
@@ -152,6 +159,8 @@ let g:syntastic_python_checker = "flake8"
 let g:syntastic_python_flake8_args='--ignore=E126'
 " E126: line continuation
 " E501: greater than 80 chars (I've got a column for this, readability wins)
+
+
 
 """"""""""""
 " Functions
