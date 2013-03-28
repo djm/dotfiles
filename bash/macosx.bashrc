@@ -15,11 +15,6 @@ alias clearpyc='find . -name "*.pyc" -exec rm -rf {} \;'
 alias serve='python -m SimpleHTTPServer'
 alias jsonify='python -mjson.tool'
 
-# Bash completion (Linux)
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-fi
-
 # Bash completion (Mac OSX)
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion

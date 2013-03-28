@@ -24,14 +24,13 @@ au BufNewFile,BufRead *.wsgi set filetype=python
 au BufNewFile,BufRead Vagrantfile set filetype=ruby
 au BufNewFile,BufRead *.j2 set filetype=html
 
-" Core/Random Settings
-let mapleader = ","
-
 " Key Remaps
+nnoremap <space> <nop>
+let mapleader = "\<space>"
 inoremap <F1> <ESC> " Remaps stupid help key to Esc
 nnoremap <F1> <ESC> " in all modes.
 vnoremap <F1> <ESC>
-inoremap :W :w 
+inoremap :W :w
 nnoremap :W :w
 vnoremap :W :w
 " Disable arrow keys - raaah
@@ -44,10 +43,9 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
-
 " Tab/Window Switching Remaps
 nnoremap <C-h> <C-w>h " Next four lines control switching split
-nnoremap <C-j> <C-w>j " windows. Remap Caps lock to control to 
+nnoremap <C-j> <C-w>j " windows. Remap Caps lock to control to
 nnoremap <C-k> <C-w>k " make this even easier.
 nnoremap <C-l> <C-w>l
 nnoremap <C-left> :tabp<CR> " Previous tab.
@@ -95,7 +93,7 @@ match Todo /\s\+$/ "Highlight trailing whitespace
 " Display Settings
 "
 set cursorline " Highlights current line.
-set hidden 
+set hidden
 set laststatus=2 " Permanently enables status line.
 if exists("&relativenumber")
     set relativenumber " Shows relative to cursor line numbers instead of actual.
@@ -109,6 +107,8 @@ set wildmode=list:longest " Tells the above how to act.
 set wildmenu " Improves vims file opening auto complete.
 set wildignore=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*$py.class,*.class " Get out of my wildmenu!
 syntax enable " Enable syntax highlighting!
+highlight ExtraWhitespace ctermbg=red guibg=red " Highlight trailing space
+match ExtraWhitespace /\s\+$/ " Regex for highlighting trailing space
 
 " Turn off visual and sound bells
 set noerrorbells visualbell t_vb=
@@ -128,25 +128,39 @@ set smartcase " If you search with an upper case character, search becomes case 
 set hlsearch " Next 3 lines handle highlighting while you type.
 set incsearch
 set showmatch
-nnoremap <leader><space> :noh<cr> " Leader + space to remove search highlighting.
+" Leader + space to remove search highlighting.
+nnoremap <leader>, :noh<cr>
 nnoremap <tab> % " Remaps tab to match bracket pairs
 vnoremap <tab> %
 
 " Leader Functions
-nnoremap <leader>s <C-w>v<C-w>l " s = Split window and swap to it.
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR> " W = Strip all trailing whitespace.
-nnoremap <leader>sortcss ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR> " sortcss = Sort all CSS properties.
-nnoremap <leader>v V`] " v = Visually selects just-pasted text.
-nnoremap <leader>n :call NumberToggle()<CR> " n = toggles relative line numbers on & off.
-nnoremap <leader>F :update<CR>:e ++ff=dos<CR>:setlocal ff=unix<CR>:w<CR> " Fixes ^M line endings.
+" s = Split window and swap to it.
+nnoremap <leader>s <C-w>v<C-w>l
+" W = Strip all trailing whitespace.
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+" sortcss = Sort all CSS properties.
+nnoremap <leader>sortcss ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
+" v = Visually selects just-pasted text.
+nnoremap <leader>v V`]
+" switches between relative and static line numbering
+nnoremap <leader>n :call NumberToggle()<CR>
+" Fixes ^M line endings.
+nnoremap <leader>F :update<CR>:e ++ff=dos<CR>:setlocal ff=unix<CR>:w<CR>
 
 " 3rd Party Plugin Mapping/Settings
 " - gundo
 nnoremap <F5> :GundoToggle<CR> " gundo
 " - ctrl-p
-let g:ctrlp_map = '<leader>p' " ctrl-p
-let g:ctrlp_cmd = 'CtrlPMixed' " ctrl-p
-let g:ctrlp_working_path_mode = 2
+let g:ctrlp_map = '<leader>p'
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_working_path_mode = 'r'
+"  -- Swaps controls so default is open in tab.
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
+"  -- disables path caching on dirs with small amount of files.
+let g:ctrlp_use_caching = 200
 " - yankring
 let g:yankring_history_file = '.yankring_history'
 " - syntastic
@@ -161,13 +175,12 @@ let g:syntastic_python_flake8_args='--ignore=E126'
 " E501: greater than 80 chars (I've got a column for this, readability wins)
 
 
-
 """"""""""""
 " Functions
 """"""""""""
 
 function! NumberToggle()
-" Toggles relative line numbers in a 
+" Toggles relative line numbers in a
 " backwards compatible way.
     if exists("&rnu")
         if &number
@@ -178,4 +191,4 @@ function! NumberToggle()
     else
         setlocal nonumber
     endif
-endfunction 
+endfunction
