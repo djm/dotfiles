@@ -12,6 +12,9 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'sjl/gundo.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'YankRing.vim'
+Bundle 'skammer/vim-css-color'
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'groenewege/vim-less'
 
 filetype plugin indent on
 
@@ -149,9 +152,9 @@ nnoremap <leader>F :update<CR>:e ++ff=dos<CR>:setlocal ff=unix<CR>:w<CR>
 
 " 3rd Party Plugin Mapping/Settings
 " - gundo
-nnoremap <F5> :GundoToggle<CR> " gundo
+nnoremap <leader>g :GundoToggle<CR> " gundo
 " - ctrl-p
-let g:ctrlp_map = '<leader>p'
+let g:ctrlp_map = '<leader>o'
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = 'r'
 "  -- Swaps controls so default is open in tab.
@@ -170,9 +173,9 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'passive_filetypes': ['html'] }
 let g:syntastic_auto_loc_list=1
 let g:syntastic_python_checker = "flake8"
-let g:syntastic_python_flake8_args='--ignore=E126'
+"let g:syntastic_python_flake8_args='--ignore=E126 --max-line-length=120'
 " E126: line continuation
-" E501: greater than 80 chars (I've got a column for this, readability wins)
+" E501: only whinge at 120 line length (col is at 80 though)
 
 
 """"""""""""

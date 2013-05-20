@@ -7,7 +7,7 @@
 
 export LC_ALL="en_GB.UTF-8"
 export LANG="en_GB.UTF-8"
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 
 # Aliases
 alias nano='vim'
