@@ -31,3 +31,7 @@ RadioTray Bookmarks
 -------------------
 
 ln -s ~/dotfiles/radiotray/bookmarks.xml ~/.local/share/radiotray/bookmarks.xml
+
+Python Config
+-------------
+ln -s ~/dotfiles/python/flake8 ~/.config/flake8
