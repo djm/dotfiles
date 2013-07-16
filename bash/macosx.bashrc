@@ -1,5 +1,5 @@
 #
-# ~/.bashrc
+# ~/.bash_profile
 #
 
 # If not running interactively, don't do anything
@@ -8,6 +8,8 @@
 export LC_ALL="en_GB.UTF-8"
 export LANG="en_GB.UTF-8"
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
+
+export EDITOR=vim
 
 # Aliases
 alias nano='vim'
@@ -102,6 +104,15 @@ bash_prompt() {
 PROMPT_COMMAND=bash_prompt_command
 bash_prompt
 unset bash_prompt
+
+# Safer curl | sh'ing
+function curlsh {
+    file=$(mktemp -t curlsh) || { echo "Failed to create temporary file."; return; }
+    curl -s "$1" > $file || { echo "Failed to curl file."; return; }
+    $EDITOR $file || { echo "Editor quit; file could not be opened or editor was quit forcefully."; return; }
+    sh $file;
+    rm $file;
+}
 
 # Python
 VIRTUALENV_WRAPPER='/usr/local/bin/virtualenvwrapper.sh'

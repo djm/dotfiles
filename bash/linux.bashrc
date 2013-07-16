@@ -117,3 +117,5 @@ if [ -f $HEROKU_TOOLBELT ]
 then
     export PATH="$HEROKU_TOOLBELT:$PATH"
 fi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
