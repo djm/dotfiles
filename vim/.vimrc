@@ -15,6 +15,8 @@ Bundle 'YankRing.vim'
 Bundle 'skammer/vim-css-color'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'groenewege/vim-less'
+Bundle 'rizzatti/funcoo.vim'
+Bundle 'rizzatti/dash.vim'
 
 filetype plugin indent on
 
@@ -173,9 +175,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'passive_filetypes': ['html'] }
 let g:syntastic_auto_loc_list=1
 let g:syntastic_python_checker = "flake8"
-"let g:syntastic_python_flake8_args='--ignore=E126 --max-line-length=120'
-" E126: line continuation
-" E501: only whinge at 120 line length (col is at 80 though)
+" to edit flake8 args, see ~/.config/flake8
 
 
 """"""""""""
