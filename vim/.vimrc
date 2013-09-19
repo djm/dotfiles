@@ -75,6 +75,9 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 
+" Spaces for html
+autocmd FileType html :setlocal shiftwidth=2 tabstop=2 softtabstop=2 
+
 " Omnicomplete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -145,12 +148,16 @@ nnoremap <leader>s <C-w>v<C-w>l
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 " sortcss = Sort all CSS properties.
 nnoremap <leader>sortcss ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
-" v = Visually selects just-pasted text.
-nnoremap <leader>v V`]
 " switches between relative and static line numbering
 nnoremap <leader>n :call NumberToggle()<CR>
 " Fixes ^M line endings.
 nnoremap <leader>F :update<CR>:e ++ff=dos<CR>:setlocal ff=unix<CR>:w<CR>
+" v = insert path to virtualenv package dir.
+" Obviously won't work if youre using a project inside vagrant.
+nnoremap <leader>v :e $VIRTUAL_ENV/lib/python2.7/site-packages/
+" Use leader + number to indicate tab spacing.
+nnoremap <leader>2 :setlocal sw=2 ts=2 sts=2<CR>
+nnoremap <leader>4 :setlocal sw=4 ts=4 sts=4<CR>
 
 " 3rd Party Plugin Mapping/Settings
 " - gundo
