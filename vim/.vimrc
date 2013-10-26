@@ -24,6 +24,7 @@ filetype plugin indent on
 au BufNewFile,BufRead *.dump set filetype=sql
 au BufNewFile,BufRead *.sass set filetype=sass
 au BufNewFile,BufRead *.scss set filetype=scss
+au BufNewFile,BufRead *.yml,*.yaml set filetype=yaml
 au BufNewFile,BufRead *.less set filetype=css
 au BufNewFile,BufRead *.wsgi set filetype=python
 au BufNewFile,BufRead Vagrantfile set filetype=ruby

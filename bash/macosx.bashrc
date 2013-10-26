@@ -8,6 +8,7 @@
 export LC_ALL="en_GB.UTF-8"
 export LANG="en_GB.UTF-8"
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
+export PATH=/System//Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH
 
 export EDITOR=vim
 
@@ -23,6 +24,7 @@ alias vssh='vagrant ssh'
 alias vin='vagrant up && vagrant ssh'
 alias vh='vagrant halt'
 alias vd='vagrant destroy'
+alias vr='vagrant reload'
 
 # Bash completion (Mac OSX)
 if [ -f `brew --prefix`/etc/bash_completion ]; then
