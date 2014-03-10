@@ -7,12 +7,12 @@
 
 export LC_ALL="en_GB.UTF-8"
 export LANG="en_GB.UTF-8"
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
-export PATH=/System//Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/System//Library/Frameworks/Python.framework/Versions/2.7/bin:$(brew --prefix coreutils)/libexec/gnubin
 
 export EDITOR=vim
 
 # Aliases
+alias ..='cd ..'
 alias nano='vim'
 alias clearpyc='find . -name "*.pyc" -exec rm -rf {} \;'
 alias serve='python -m SimpleHTTPServer'
@@ -25,8 +25,9 @@ alias vin='vagrant up && vagrant ssh'
 alias vh='vagrant halt'
 alias vd='vagrant destroy'
 alias vr='vagrant reload'
+alias vp='vagrant provision'
 
-# Bash completion (Mac OSX)
+# Bash completion for homebrew.
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi

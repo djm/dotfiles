@@ -17,6 +17,7 @@ Bundle 'hail2u/vim-css3-syntax'
 Bundle 'groenewege/vim-less'
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
+Bundle 'chase/vim-ansible-yaml'
 
 filetype plugin indent on
 
@@ -182,7 +183,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': ['html'] }
 let g:syntastic_auto_loc_list=1
-let g:syntastic_python_checker = "flake8"
+let g:syntastic_python_checkers = ["flake8"]
 " to edit flake8 args, see ~/.config/flake8
 
 
