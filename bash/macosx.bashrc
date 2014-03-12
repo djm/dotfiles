@@ -5,8 +5,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-export LC_ALL="en_GB.UTF-8"
-export LANG="en_GB.UTF-8"
+export LC_CTYPE=en_GB.UTF-8
+export LC_ALL=en_GB.UTF-8
+export LANG=en_GB.UTF-8
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/System//Library/Frameworks/Python.framework/Versions/2.7/bin:$(brew --prefix coreutils)/libexec/gnubin
 
 export EDITOR=vim
@@ -30,6 +31,11 @@ alias vp='vagrant provision'
 # Bash completion for homebrew.
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
+fi
+
+# Bash completion for git.
+if [ -f ~/dotfiles/git/git-completion.bash ]; then
+    . ~/dotfiles/git/git-completion.bash
 fi
 
 HISTSIZE=100000

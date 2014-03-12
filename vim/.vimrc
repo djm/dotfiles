@@ -18,6 +18,7 @@ Bundle 'groenewege/vim-less'
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
 Bundle 'chase/vim-ansible-yaml'
+Bundle 'tpope/vim-fugitive'
 
 filetype plugin indent on
 
@@ -183,8 +184,13 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': ['html'] }
 let g:syntastic_auto_loc_list=1
-let g:syntastic_python_checkers = ["flake8"]
 " to edit flake8 args, see ~/.config/flake8
+let g:syntastic_python_checkers = ["flake8"]
+" - fugitive.vim - git plugin
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gmv :Gmove<CR>
+nnoremap <leader>gc :Gcommit<CR>
 
 
 """"""""""""
