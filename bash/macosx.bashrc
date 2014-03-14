@@ -28,16 +28,6 @@ alias vd='vagrant destroy'
 alias vr='vagrant reload'
 alias vp='vagrant provision'
 
-# Bash completion for homebrew.
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
-fi
-
-# Bash completion for git.
-if [ -f ~/dotfiles/git/git-completion.bash ]; then
-    . ~/dotfiles/git/git-completion.bash
-fi
-
 HISTSIZE=100000
 export CLICOLOR=1
 
@@ -120,6 +110,7 @@ bash_prompt
 unset bash_prompt
 
 # Safer curl | sh'ing
+# See http://www.djm.org.uk/protect-yourself-from-non-obvious-dangers-curl-url-pipe-sh/
 function curlsh {
     file=$(mktemp -t curlsh) || { echo "Failed to create temporary file."; return; }
     curl -s "$1" > $file || { echo "Failed to curl file."; return; }
@@ -127,6 +118,22 @@ function curlsh {
     sh $file;
     rm $file;
 }
+
+# Bash completion for homebrew.
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
+
+# Bash completion for git.
+if [ -f ~/dotfiles/git/git-completion.bash ]; then
+    . ~/dotfiles/git/git-completion.bash
+fi
+
+# Bash completion for git flow.
+if [ -f ~/dotfiles/git/git-flow-completion.bash ]; then
+    . ~/dotfiles/git/git-flow-completion.bash
+fi
+
 
 # Python
 VIRTUALENV_WRAPPER='/usr/local/bin/virtualenvwrapper.sh'
