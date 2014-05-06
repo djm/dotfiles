@@ -46,10 +46,6 @@ map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
 
 " Tab/Window Switching Remaps
 nnoremap <C-h> <C-w>h " Next four lines control switching split
