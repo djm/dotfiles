@@ -142,6 +142,13 @@ then
     source $VIRTUALENV_WRAPPER
 fi
 
+# Google App Engine SDK
+APPENGINE_SDK='/usr/local/google_appengine/'
+if [ -f $APPENGINE_SDK ]
+then
+    export PYTHONPATH="$APPENGINE_SDK:$PYTHONPATH"
+fi
+
 # Heroku Toolbelt
 HEROKU_TOOLBELT='/usr/local/heroku/bin' 
 if [ -f $HEROKU_TOOLBELT ]
