@@ -109,16 +109,6 @@ PROMPT_COMMAND=bash_prompt_command
 bash_prompt
 unset bash_prompt
 
-# Safer curl | sh'ing
-# See http://www.djm.org.uk/protect-yourself-from-non-obvious-dangers-curl-url-pipe-sh/
-function curlsh {
-    file=$(mktemp -t curlsh) || { echo "Failed to create temporary file."; return; }
-    curl -s "$1" > $file || { echo "Failed to curl file."; return; }
-    $EDITOR $file || { echo "Editor quit; file could not be opened or editor was quit forcefully."; return; }
-    sh $file;
-    rm $file;
-}
-
 # Bash completion for homebrew.
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
@@ -134,6 +124,9 @@ if [ -f ~/dotfiles/git/git-flow-completion.bash ]; then
     . ~/dotfiles/git/git-flow-completion.bash
 fi
 
+# To stop clang errors thanks to Xcode updates.
+# https://langui.sh/2014/03/10/wunused-command-line-argument-hard-error-in-future-is-a-harsh-mistress/
+export ARCHFLAGS="-Wno-error=unused-command-line-argument-hard-error-in-future"
 
 # Python
 VIRTUALENV_WRAPPER='/usr/local/bin/virtualenvwrapper.sh'
@@ -155,6 +148,9 @@ if [ -f $HEROKU_TOOLBELT ]
 then
     export PATH="$HEROKU_TOOLBELT:$PATH"
 fi
+
+# Docker
+export DOCKER_HOST=tcp://`boot2docker ip 2>/dev/null`:2375
 
 # If nvm (node version manager) in installed, then use it.
 [[ -s /Users/djm/.nvm/nvm.sh ]] && . /Users/djm/.nvm/nvm.sh
