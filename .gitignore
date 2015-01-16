@@ -3,3 +3,5 @@
 tags
 *.pyc
 *.netrwhist
+
+vim/.vim/bundle/*
