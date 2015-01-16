@@ -1,5 +1,12 @@
-*.swp
-*.swo
-*.swn
+# Editors
+*.sw[pon]
+
+# Python
 *.pyc
+
+# Development
 .vagrant
+htmlcov
+
+# OS
+*.DS_Store
