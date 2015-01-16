@@ -19,6 +19,7 @@ Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
 Bundle 'chase/vim-ansible-yaml'
 Bundle 'tpope/vim-fugitive'
+Plugin 'fatih/vim-go'
 
 filetype plugin indent on
 
@@ -31,6 +32,7 @@ au BufNewFile,BufRead *.less set filetype=css
 au BufNewFile,BufRead *.wsgi set filetype=python
 au BufNewFile,BufRead Vagrantfile set filetype=ruby
 au BufNewFile,BufRead *.j2 set filetype=html
+au BufNewFile,BufRead *.go set filetype=go
 
 " Key Remaps
 nnoremap <space> <nop>
