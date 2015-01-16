@@ -8,7 +8,7 @@
 export LC_CTYPE=en_GB.UTF-8
 export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/System//Library/Frameworks/Python.framework/Versions/2.7/bin:$(brew --prefix coreutils)/libexec/gnubin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/System/Library/Frameworks/Python.framework/Versions/2.7/bin:$(brew --prefix coreutils)/libexec/gnubin:/usr/local/go/bin
 
 export EDITOR=vim
 
@@ -135,6 +135,22 @@ then
     source $VIRTUALENV_WRAPPER
 fi
 
+# Ruby & RVM
+RVM_DIR="$HOME/.rvm"
+if [ -f $RVM_DIR ]
+then
+    export PATH="$PATH:$HOME/.rvm/bin"
+fi
+
+
+# Go
+GO="/usr/local/go/bin/go"
+if [ -f $GO ]
+then
+    export GOPATH="$HOME/src/go"
+    export PATH=$PATH:$GOPATH/bin
+fi
+
 # Google App Engine SDK
 APPENGINE_SDK='/usr/local/google_appengine/'
 if [ -f $APPENGINE_SDK ]
@@ -143,14 +159,18 @@ then
 fi
 
 # Heroku Toolbelt
-HEROKU_TOOLBELT='/usr/local/heroku/bin' 
+HEROKU_TOOLBELT='/usr/local/heroku/bin'
 if [ -f $HEROKU_TOOLBELT ]
 then
     export PATH="$HEROKU_TOOLBELT:$PATH"
 fi
 
-# Docker
-export DOCKER_HOST=tcp://`boot2docker ip 2>/dev/null`:2375
+# Docker via boot2docker
+BOOT2DOCKER='/usr/local/bin/boot2docker'
+if [ -f $BOOT2DOCKER ]
+then
+    $(boot2docker shellinit)
+fi
 
 # If nvm (node version manager) in installed, then use it.
 [[ -s /Users/djm/.nvm/nvm.sh ]] && . /Users/djm/.nvm/nvm.sh
