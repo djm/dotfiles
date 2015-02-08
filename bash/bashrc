@@ -2,7 +2,7 @@
 # ~/.bash_profile
 #
 
-# If not running interactively, don't do anything
+# If not running interactively, don't do anything.
 [[ $- != *i* ]] && return
 
 export LC_CTYPE=en_GB.UTF-8
@@ -30,6 +30,17 @@ alias vh='vagrant halt'
 alias vd='vagrant destroy'
 alias vr='vagrant reload'
 alias vp='vagrant provision'
+
+# Aliases - Git
+alias gb='git blame'
+alias gc='git commit'
+alias gd='git diff'
+alias gm='git merge'
+alias gp='git push'
+alias gr='git rebase'
+alias gs='git status'
+alias gref='git reflog'
+alias gshow='git show'
 
 # Aliases - Go
 alias gob='godep go build'
