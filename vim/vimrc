@@ -1,3 +1,11 @@
+"  Configuration file for Vim
+"  (http://www.vim.org)
+
+"  ryanss <ryanssdev@icloud.com>
+"  https://github.com/djm/dotfiles/vim/vimrc
+"  BSD License
+
+
 set nocompatible
 filetype off
 
@@ -20,20 +28,21 @@ Plugin 'rizzatti/dash.vim'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'tpope/vim-fugitive'
 Plugin 'fatih/vim-go'
+Plugin 'pangloss/vim-javascript'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'jimenezrick/vimerl'
+Plugin 'tpope/vim-vinegar'
+Plugin 'bling/vim-airline'
+Plugin 'nanotech/jellybeans.vim'
 
 call vundle#end()
 filetype plugin indent on
 
-" Add filetypes to syntax highlighting
 au BufNewFile,BufRead *.dump set filetype=sql
-au BufNewFile,BufRead *.sass set filetype=sass
-au BufNewFile,BufRead *.scss set filetype=scss
 au BufNewFile,BufRead *.yml,*.yaml set filetype=yaml
-au BufNewFile,BufRead *.less set filetype=css
 au BufNewFile,BufRead *.wsgi set filetype=python
 au BufNewFile,BufRead Vagrantfile set filetype=ruby
 au BufNewFile,BufRead *.j2 set filetype=html
-au BufNewFile,BufRead *.go set filetype=go
 
 " Key Remaps
 nnoremap <space> <nop>
@@ -77,27 +86,14 @@ set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 
-" Spaces for html
-autocmd FileType html :setlocal shiftwidth=2 tabstop=2 softtabstop=2 
-
-" Omnicomplete
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-
 " Text Width & Wrapping Settings
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-if exists("&colorcolumn")
-    set colorcolumn=80
-endif
 
 " Colour & Theme Settings
-set t_Co=256 " 256 colours support. NB: Before theme.
-colorscheme molokai
-"colorscheme zenburn
+set t_Co=256 " 256 colours support.
+colorscheme jellybeans "molokai
 match Todo /\s\+$/ "Highlight trailing whitespace
 
 " Display Settings
@@ -150,6 +146,8 @@ nnoremap <leader>s <C-w>v<C-w>l
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 " sortcss = Sort all CSS properties.
 nnoremap <leader>sortcss ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
+" Toggle the 80-char column on & off
+nnoremap <leader>c :call ColumnToggle()<CR>
 " switches between relative and static line numbering
 nnoremap <leader>n :call NumberToggle()<CR>
 " Fixes ^M line endings.
@@ -196,9 +194,15 @@ nnoremap <leader>gc :Gcommit<CR>
 " Functions
 """"""""""""
 
+function! ColumnToggle()
+" Toggles the 80-char column.
+    if exists("&colorcolumn")
+        set colorcolumn=80
+    endif
+endfunction
+
 function! NumberToggle()
-" Toggles relative line numbers in a
-" backwards compatible way.
+" Toggles relative line numbers.
     if exists("&rnu")
         if &number
             setlocal relativenumber

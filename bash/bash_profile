@@ -1,29 +1,40 @@
 #
-# ~/.bashrc
+# ~/.bash_profile
 #
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-export LC_ALL="en_GB.UTF-8"
-export LANG="en_GB.UTF-8"
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export LC_CTYPE=en_GB.UTF-8
+export LC_ALL=en_GB.UTF-8
+export LANG=en_GB.UTF-8
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/System/Library/Frameworks/Python.framework/Versions/2.7/bin:$(brew --prefix coreutils)/libexec/gnubin:/usr/local/go/bin
+
+export EDITOR=vim
 
 # Aliases
+alias ..='cd ..'
 alias nano='vim'
+
+# Aliases - Python
 alias clearpyc='find . -name "*.pyc" -exec rm -rf {} \;'
 alias serve='python -m SimpleHTTPServer'
 alias jsonify='python -mjson.tool'
-alias ack=ack-grep
 
-# Bash completion (Linux)
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-fi
+# Aliases - Vagrant
+alias v='vagrant'
+alias vup='vagrant up'
+alias vssh='vagrant ssh'
+alias vin='vagrant up && vagrant ssh'
+alias vh='vagrant halt'
+alias vd='vagrant destroy'
+alias vr='vagrant reload'
+alias vp='vagrant provision'
 
-PS1='[\u@\h \w]\$ '
-PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] \$\[\033[00m\] '
-HISTSIZE=2000
+# Aliases - Go
+alias gob='godep go build'
+
+HISTSIZE=100000
 export CLICOLOR=1
 
 ##################################################
@@ -95,7 +106,7 @@ bash_prompt() {
     local UC=$W                 # user's color
     [ $UID -eq "0" ] && UC=$R   # root's color
 
-    PS1="$TITLEBAR${W}[${EMG}\u${EMC}@${EMB}\h${EMC}\${NEW_PWD}${W}]${UC}\\$ ${NONE}"
+    PS1="$TITLEBAR${W}[${EMG}\u${EMC}:${EMB}\${NEW_PWD}${W}]${UC}\\$ ${NONE}"
     # without colors: PS1="[\u@\h \${NEW_PWD}]\\$ "
     # extra backslash in front of \$ to make bash colorize the prompt
 }
@@ -104,6 +115,25 @@ PROMPT_COMMAND=bash_prompt_command
 bash_prompt
 unset bash_prompt
 
+# Bash completion for homebrew.
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
+
+# Bash completion for git.
+if [ -f ~/dotfiles/git/git-completion.bash ]; then
+    . ~/dotfiles/git/git-completion.bash
+fi
+
+# Bash completion for git flow.
+if [ -f ~/dotfiles/git/git-flow-completion.bash ]; then
+    . ~/dotfiles/git/git-flow-completion.bash
+fi
+
+# To stop clang errors thanks to Xcode updates.
+# https://langui.sh/2014/03/10/wunused-command-line-argument-hard-error-in-future-is-a-harsh-mistress/
+export ARCHFLAGS="-Wno-error=unused-command-line-argument-hard-error-in-future"
+
 # Python
 VIRTUALENV_WRAPPER='/usr/local/bin/virtualenvwrapper.sh'
 if [ -f $VIRTUALENV_WRAPPER ]
@@ -111,11 +141,45 @@ then
     source $VIRTUALENV_WRAPPER
 fi
 
+# Ruby & RVM
+RVM_DIR="$HOME/.rvm"
+if [ -f $RVM_DIR ]
+then
+    export PATH="$PATH:$HOME/.rvm/bin"
+fi
+
+
+# Go
+GO="/usr/local/go/bin/go"
+if [ -f $GO ]
+then
+    export GOPATH=$HOME/src/go
+    export GOBIN=$GOPATH/bin
+    export PATH=$PATH:$GOBIN
+fi
+
+# Google App Engine SDK
+APPENGINE_SDK='/usr/local/google_appengine/'
+if [ -f $APPENGINE_SDK ]
+then
+    export PYTHONPATH="$APPENGINE_SDK:$PYTHONPATH"
+fi
+
 # Heroku Toolbelt
-HEROKU_TOOLBELT='/usr/local/heroku/bin' 
+HEROKU_TOOLBELT='/usr/local/heroku/bin'
 if [ -f $HEROKU_TOOLBELT ]
 then
     export PATH="$HEROKU_TOOLBELT:$PATH"
 fi
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# Docker via boot2docker
+BOOT2DOCKER='/usr/local/bin/boot2docker'
+if [ -f $BOOT2DOCKER ]
+then
+    $(boot2docker shellinit)
+fi
+
+# If nvm (node version manager) in installed, then use it.
+[[ -s /Users/djm/.nvm/nvm.sh ]] && . /Users/djm/.nvm/nvm.sh
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

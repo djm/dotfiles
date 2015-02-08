@@ -1,38 +1,8 @@
-INSTALL
-=======
+Dotfiles
+========
 
-git clone git@github.com:djm/dotfiles.git ~/dotfiles/
+To install on new OSX machine:
 
-Bash Config
------------
-
-ln -s ~/dotfiles/bash/{linux|macosx.bashrc ~/.bash{rc|_profile}
-ln -s ~/dotfiles/bash/.inputrc ~/.inputrc
-
-Git Config
-----------
-
-ln -s ~/dotfiles/git/.gitconfig ~/.gitconfig
-ln -s ~/dotfiles/git/.gitignore ~/.gitignore
-git config --global core.excludesfile ~/.gitignore
-
-Mercurial Config
-----------------
-ln -s ~/dotfiles/hg/.hgext ~/.hgext
-# We copy instead of link as we tend to store auth details in hgrc.
-cp ~/dotfiles/hg/.hgrc ~/.hgrc
-
-Vim Config
-----------
-
-ln -s ~/dotfiles/vim/.vimrc ~/.vimrc
-ln -s ~/dotfiles/vim/.vim/ ~/.vim
-
-RadioTray Bookmarks
--------------------
-
-ln -s ~/dotfiles/radiotray/bookmarks.xml ~/.local/share/radiotray/bookmarks.xml
-
-Python Config
--------------
-ln -s ~/dotfiles/python/flake8 ~/.config/flake8
+```
+curl -s https://raw.githubusercontent.com/djm/dotfiles/master/install.sh | sh
+```
