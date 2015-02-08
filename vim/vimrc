@@ -24,6 +24,7 @@ Plugin 'lilydjwg/colorizer'         " hex/rgb colours inline.
 Plugin 'tpope/vim-fugitive'         " adds git support.
 Plugin 'tpope/vim-vinegar'          " simple dir browsing.
 Plugin 'bling/vim-airline'          " better status line.
+Plugin 'jmcantrell/vim-virtualenv'  " Virtualenv support.
 Plugin 'hail2u/vim-css3-syntax'     " CSS3 support.
 Plugin 'groenewege/vim-less'        " LESS support.
 Plugin 'chase/vim-ansible-yaml'     " Ansible support.
@@ -31,6 +32,7 @@ Plugin 'fatih/vim-go'               " Golang support.
 Plugin 'pangloss/vim-javascript'    " JS support.
 Plugin 'elixir-lang/vim-elixir'     " Elixir support.
 Plugin 'jimenezrick/vimerl'         " Erlang support.
+Plugin 'chrisbra/csv.vim'           " CSV support.
 
 call vundle#end()
 
@@ -172,23 +174,22 @@ nnoremap <leader>F :update<CR>:e ++ff=dos<CR>:setlocal ff=unix<CR>:w<CR>
 nnoremap <leader>2 :setlocal sw=2 ts=2 sts=2<CR>
 nnoremap <leader>4 :setlocal sw=4 ts=4 sts=4<CR>
 
-" Gundo configuration
+" Gundo configuration.
 nnoremap <leader>g :GundoToggle<CR> " gundo
 
-" Ctrl-p configuration
+" Vim-airline configuration.
+let g:airline#extensions#tabline#enabled = 1
+
+" Ctrl-p configuration.
 let g:ctrlp_map = '<leader>o'
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = 'r'
-let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<c-t>'],
-    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
-    \ }
 let g:ctrlp_use_caching = 200 " disable path caching for small dirs.
 
-" Yankring configuration
+" Yankring configuration.
 let g:yankring_history_file = '.yankring_history'
 
-" Syntastic configuration
+" Syntastic configuration.
 let g:syntastic_enable_signs=1
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
