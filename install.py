@@ -26,7 +26,7 @@ SYMLINKS = (
 )
 
 POST_COMMANDS = (
-    'git config --global core.excludesfile ~/.gitignore',
+    # None yet.
 )
 
 
