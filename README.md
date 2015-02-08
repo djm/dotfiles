@@ -1,8 +1,9 @@
 Dotfiles
 ========
 
-To install on new OSX machine:
+To install on a new OSX machine:
 
 ```
-curl -s https://raw.githubusercontent.com/djm/dotfiles/master/install.sh | sh
+git clone https://github.com/djm/dotfiles.git ~/dotfiles
+cd ~/dotfiles && ./install.py
 ```
