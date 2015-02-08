@@ -1,6 +1,7 @@
 git clone git@github.com:djm/dotfiles.git ~/dotfiles/
 
 # Bash config
+ln -s ~/dotfiles/bash/bashrc ~/.bashrc
 ln -s ~/dotfiles/bash/bash_profile ~/.bash_profile
 ln -s ~/dotfiles/bash/inputrc ~/.inputrc
 
@@ -19,3 +20,6 @@ ln -s ~/dotfiles/vim/vim/ ~/.vim
 
 # Python Config
 ln -s ~/dotfiles/python/flake8 ~/.config/flake8
+
+# Source Bash
+. ~/.bash_profile
