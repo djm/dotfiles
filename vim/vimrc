@@ -38,6 +38,12 @@ Plugin 'nanotech/jellybeans.vim'
 call vundle#end()
 filetype plugin indent on
 
+" Automatically install bundles on first run
+if !isdirectory(expand("~/.vim/bundle/gundo"))
+    execute 'silent BundleInstall'
+    execute 'silent q'
+endif
+
 au BufNewFile,BufRead *.dump set filetype=sql
 au BufNewFile,BufRead *.yml,*.yaml set filetype=yaml
 au BufNewFile,BufRead *.wsgi set filetype=python
