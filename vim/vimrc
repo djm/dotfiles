@@ -6,193 +6,195 @@
 "  BSD License
 
 
+" vundle setup.
 set nocompatible
 filetype off
-
-" setup and run vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/vundle'              " the package manager itself.
 
-Plugin 'mileszs/ack.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'sjl/gundo.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'YankRing.vim'
-Plugin 'skammer/vim-css-color'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'groenewege/vim-less'
-Plugin 'rizzatti/funcoo.vim'
-Plugin 'rizzatti/dash.vim'
-Plugin 'chase/vim-ansible-yaml'
-Plugin 'tpope/vim-fugitive'
-Plugin 'fatih/vim-go'
-Plugin 'pangloss/vim-javascript'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'jimenezrick/vimerl'
-Plugin 'tpope/vim-vinegar'
-Plugin 'bling/vim-airline'
-Plugin 'nanotech/jellybeans.vim'
+Plugin 'nanotech/jellybeans.vim'    " a colorscheme.
+Plugin 'mileszs/ack.vim'            " support for ack inside vim.
+Plugin 'kien/ctrlp.vim'             " full path fuzzy file finder.
+Plugin 'sjl/gundo.vim'              " visualises the vim undo tree.
+Plugin 'scrooloose/syntastic'       " better syntax hightlighting support.
+Plugin 'YankRing.vim'               " maintains a history of yanks.
+Plugin 'lilydjwg/colorizer'         " hex/rgb colours inline.
+Plugin 'tpope/vim-fugitive'         " adds git support.
+Plugin 'tpope/vim-vinegar'          " simple dir browsing.
+Plugin 'bling/vim-airline'          " better status line.
+Plugin 'hail2u/vim-css3-syntax'     " CSS3 support.
+Plugin 'groenewege/vim-less'        " LESS support.
+Plugin 'chase/vim-ansible-yaml'     " Ansible support.
+Plugin 'fatih/vim-go'               " Golang support.
+Plugin 'pangloss/vim-javascript'    " JS support.
+Plugin 'elixir-lang/vim-elixir'     " Elixir support.
+Plugin 'jimenezrick/vimerl'         " Erlang support.
 
 call vundle#end()
-filetype plugin indent on
 
+" Set filetype for 'odd' file extensions.
 au BufNewFile,BufRead *.dump set filetype=sql
-au BufNewFile,BufRead *.yml,*.yaml set filetype=yaml
 au BufNewFile,BufRead *.wsgi set filetype=python
 au BufNewFile,BufRead Vagrantfile set filetype=ruby
 au BufNewFile,BufRead *.j2 set filetype=html
+au BufNewFile,BufRead *.md set filetype=markdown
 
-" Key Remaps
+au FocusLost * :wa          " saves all files automatically on losing focus.
+
+filetype plugin indent on   " detect file type and load indents and plugins.
+syntax on                   " enable syntax highlighting.
+set t_Co=256                " enable 256 colours support.
+colorscheme jellybeans      " sets the default colorscheme. Options options: molokai.
+
+set autoread                " reload the buffer when files are changed externally.
+set clipboard=unnamed       " yank using system clipboard.
+set encoding=utf-8          " default character encoding.
+set hidden                  " do not unload hidden buffers.
+set undofile                " turns on tree-like undo functionality.
+set undodir=~/.vim-undo/    " the dirtory to store the undo files in.
+
+set laststatus=2            " permanently enable the status line.
+set nowrap                  " do not wrap text.
+set relativenumber          " show relative line numbers.
+set scrolloff=5             " how many lines to keep above/below cursor.
+set showcmd                 " show command line at bottom of screen.
+set sidescroll=3            " number of chars to scroll sideways at a time.
+set splitright              " open vertical split to the right.
+set wildmenu                " tab completion for commands.
+set wildmode=list:longest   " multiple tab completion matches: list all, complete common string.
+set wildignore=*.pyc        " ignore in tab completion.
+set modelines=0             " modelines is a security flaw.
+set pastetoggle=<F2>        " key to enable paste friendly mode.
+
+set cursorline              " highlights the current line.
+set ruler                   " enables the ruler (curr. file position).
+set showmode                " shows which mode you are in.
+set ttyfast                 " enables faster scrolling.
+
+set backspace=2             " make backspace behave like other apps.
+set expandtab               " insert tabs as spaces.
+set shiftwidth=4            " number of spaces for auto indent and line shift.
+set cindent                 " syntax-aware auto indent.
+set smarttab                " backspace deletes a shiftwidth worth of space.
+set softtabstop=4           " number of spaces pressing tab counts for.
+set tabstop=4               " number of spaces a tab in a file counts for.
+
+set showmatch               " show matching brackets.
+set ignorecase              " ignore case during pattern matching.
+set smartcase               " if search contains upper case char, make search case sensitive.
+set hlsearch                " keep previous search highlighted.
+set incsearch               " highlight matches while typing.
+set gdefault                " use global line replacement by default.
+
+" Remap space to be our leader key.
 nnoremap <space> <nop>
 let mapleader = "\<space>"
-inoremap <F1> <ESC> " Remaps stupid help key to Esc
-nnoremap <F1> <ESC> " in all modes.
+
+" Better search handling.
+nnoremap / /\v
+vnoremap / /\v
+
+" Disable highlighting of last search.
+nnoremap <leader>, :noh<CR>
+
+" Remap F1 to ESC in all modes.
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
-inoremap :W :w
-nnoremap :W :w
-vnoremap :W :w
-" Disable arrow keys - raaah
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
 
-" Tab/Window Switching Remaps
-nnoremap <C-h> <C-w>h " Next four lines control switching split
-nnoremap <C-j> <C-w>j " windows. Remap Caps lock to control to
-nnoremap <C-k> <C-w>k " make this even easier.
-nnoremap <C-l> <C-w>l
-nnoremap <C-left> :tabp<CR> " Previous tab.
-nnoremap <C-right> :tabn<CR> " Next tab.
+" Remap some common fat-fingered commands.
+command WQ wq
+command Wq wq
+command W w
+command Q q
 
-" modelines is a security flaw.
-set modelines=0
+" Remap a quick shortcut to get out of insert mode.
+imap jk <Esc>
 
-" File Settings
-set encoding=utf-8
-if exists("&undofile")
-    set undofile " Creates .un~ files that contain undo information.
-    set undodir=~/.vim-undo/ " Sets location of undo files directory.
-endif
-au FocusLost * :wa " Saves file automatically on losing focus.
+" Remap semi-colon for more fat-fingered-ness.
+noremap ; :
 
-" Tab/Indent Settings
-set autoindent
-set backspace=indent,eol,start
-set expandtab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
+" Prevent overwriting default register (system clipboard) when inconvenient.
+vnoremap x "_x
+vnoremap c "_c
+vnoremap p "_dP
 
-" Text Width & Wrapping Settings
-set wrap
-set textwidth=79
-set formatoptions=qrn1
+" Move between open buffers easily.
+noremap <C-J> :bp<CR>
+noremap <C-K> :bn<CR>
+noremap <Leader>d :bd!<CR>:bp<CR>
 
-" Colour & Theme Settings
-set t_Co=256 " 256 colours support.
-colorscheme jellybeans "molokai
-match Todo /\s\+$/ "Highlight trailing whitespace
+" Move between vertical splits easily.
+noremap <C-h> <C-w>h
+noremap <C-l> <C-w>l
 
-" Display Settings
-"
-set cursorline " Highlights current line.
-set hidden
-set laststatus=2 " Permanently enables status line.
-if exists("&relativenumber")
-    set relativenumber " Shows relative to cursor line numbers instead of actual.
-endif
-set ruler " Enables the ruler.
-set scrolloff=5 " Acts as a line buffer between the top/bottom of the screen.
-set showmode " Shows which mode you are in.
-set showcmd " Shows the last command.
-set ttyfast " Enables quicker scrolling.
-set wildmode=list:longest " Tells the above how to act.
-set wildmenu " Improves vims file opening auto complete.
-set wildignore=*.dll,*.o,*.pyc,*.bak,*.exe,*.jpg,*.jpeg,*.png,*.gif,*$py.class,*.class " Get out of my wildmenu!
-syntax enable " Enable syntax highlighting!
+" Highlight trailing whitespace.
 highlight ExtraWhitespace ctermbg=red guibg=red " Highlight trailing space
 match ExtraWhitespace /\s\+$/ " Regex for highlighting trailing space
 
-" Turn off visual and sound bells
+" Highlight TODO statements.
+match Todo /\s\+$/
+
+" Turn off visual and sound bells.
 set noerrorbells visualbell t_vb=
-if has('autocmd')
-  autocmd GUIEnter * set visualbell t_vb=
-endif
+autocmd GUIEnter * set visualbell t_vb=
 
-" Paste settings
-set pastetoggle=<F2>
+" Remove trailing whitespace and empty lines at end of file on write.
+augroup whitespace
+    autocmd!
+    autocmd BufWritePre * :%s/\s\+$//e
+    autocmd BufWritePre * :%s/\($\n\s*\)\+\%$//e
+augroup END
 
-" Search
-nnoremap / /\v
-vnoremap / /\v " Better regex handling
-set gdefault " Uses global line replacement by default
-set ignorecase " Case insensitive matching if using lowercase.
-set smartcase " If you search with an upper case character, search becomes case sensitive.
-set hlsearch " Next 3 lines handle highlighting while you type.
-set incsearch
-set showmatch
-" Leader + space to remove search highlighting.
-nnoremap <leader>, :noh<cr>
-nnoremap <tab> % " Remaps tab to match bracket pairs
-vnoremap <tab> %
+" Fugitive mappings.
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gmv :Gmove<CR>
+nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>gp :Git push<CR>
 
-" Leader Functions
-" s = Split window and swap to it.
+" Split the window and swap to it.
 nnoremap <leader>s <C-w>v<C-w>l
-" W = Strip all trailing whitespace.
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
-" sortcss = Sort all CSS properties.
-nnoremap <leader>sortcss ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
-" Toggle the 80-char column on & off
+
+" Toggle the 80-char column on & off.
 nnoremap <leader>c :call ColumnToggle()<CR>
-" switches between relative and static line numbering
+
+" Switches between relative and static line numbering.
 nnoremap <leader>n :call NumberToggle()<CR>
+
 " Fixes ^M line endings.
 nnoremap <leader>F :update<CR>:e ++ff=dos<CR>:setlocal ff=unix<CR>:w<CR>
-" v = insert path to virtualenv package dir.
-" Obviously won't work if youre using a project inside vagrant.
-nnoremap <leader>v :e $VIRTUAL_ENV/lib/python2.7/site-packages/
-" Use leader + number to indicate tab spacing.
+
+" Use leader + number to indicate tab spacing settings.
 nnoremap <leader>2 :setlocal sw=2 ts=2 sts=2<CR>
 nnoremap <leader>4 :setlocal sw=4 ts=4 sts=4<CR>
 
-" 3rd Party Plugin Mapping/Settings
-" - gundo
+" Gundo configuration
 nnoremap <leader>g :GundoToggle<CR> " gundo
-" - ctrl-p
+
+" Ctrl-p configuration
 let g:ctrlp_map = '<leader>o'
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = 'r'
-"  -- Swaps controls so default is open in tab.
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("e")': ['<c-t>'],
     \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
     \ }
-"  -- disables path caching on dirs with small amount of files.
-let g:ctrlp_use_caching = 200
-" - yankring
+let g:ctrlp_use_caching = 200 " disable path caching for small dirs.
+
+" Yankring configuration
 let g:yankring_history_file = '.yankring_history'
-" - syntastic
+
+" Syntastic configuration
 let g:syntastic_enable_signs=1
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': ['html'] }
 let g:syntastic_auto_loc_list=1
-" to edit flake8 args, see ~/.config/flake8
 let g:syntastic_python_checkers = ["flake8"]
-" - fugitive.vim - git plugin
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gb :Gblame<CR>
-nnoremap <leader>gmv :Gmove<CR>
-nnoremap <leader>gc :Gcommit<CR>
-
-
-""""""""""""
-" Functions
-""""""""""""
 
 function! ColumnToggle()
 " Toggles the 80-char column.
