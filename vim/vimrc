@@ -14,7 +14,9 @@ call vundle#begin()
 
 Plugin 'gmarik/vundle'              " the package manager itself.
 
-Plugin 'nanotech/jellybeans.vim'    " a colorscheme.
+Plugin 'nanotech/jellybeans.vim'    " jellybeans colorscheme.
+Plugin 'tomasr/molokai'             " molokai colorscheme.
+Plugin 'altercation/solarized'      " solarized colorscheme.
 Plugin 'mileszs/ack.vim'            " support for ack inside vim.
 Plugin 'kien/ctrlp.vim'             " full path fuzzy file finder.
 Plugin 'sjl/gundo.vim'              " visualises the vim undo tree.
@@ -48,7 +50,7 @@ au FocusLost * :wa          " saves all files automatically on losing focus.
 filetype plugin indent on   " detect file type and load indents and plugins.
 syntax on                   " enable syntax highlighting.
 set t_Co=256                " enable 256 colours support.
-colorscheme jellybeans      " sets the default colorscheme. Options options: molokai.
+colorscheme jellybeans      " sets the default colorscheme. Options options: molokai, solarized.
 
 set autoread                " reload the buffer when files are changed externally.
 set clipboard=unnamed       " yank using system clipboard.
@@ -133,8 +135,8 @@ noremap <C-h> <C-w>h
 noremap <C-l> <C-w>l
 
 " Highlight trailing whitespace.
-highlight ExtraWhitespace ctermbg=red guibg=red " Highlight trailing space
-match ExtraWhitespace /\s\+$/ " Regex for highlighting trailing space
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 
 " Highlight TODO statements.
 match Todo /\s\+$/
