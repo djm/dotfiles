@@ -26,7 +26,7 @@ SYMLINKS = (
 )
 
 POST_COMMANDS = (
-    # None yet.
+    'vim +PluginInstall +qall',  # Install Vim packages via vundle.
 )
 
 
