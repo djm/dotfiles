@@ -4,7 +4,7 @@ import subprocess
 import os
 
 
-REPO = 'https://github.com/djm/dotfiles.git'
+REPO = 'git@github.com:djm/dotfiles.git'
 DOTFILES_DIR = os.path.expanduser('~/dotfiles/')
 
 SYMLINKS = (
