@@ -147,6 +147,10 @@ match Todo /\s\+$/
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
+" Toggle relative numbers on/off when joining/leaving insert mode.
+autocmd InsertEnter * silent! :set norelativenumber number
+autocmd InsertLeave,BufNewFile,VimEnter * silent! :set relativenumber
+
 " Remove trailing whitespace and empty lines at end of file on write.
 augroup whitespace
     autocmd!
