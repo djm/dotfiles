@@ -21,6 +21,11 @@ alias clearpyc='find . -name "*.pyc" -exec rm -rf {} \;'
 alias serve='python -m SimpleHTTPServer'
 alias jsonify='python -mjson.tool'
 
+# Aliases - Docker
+alias dc='docker-compose'
+alias dm='docker-machine'
+alias dexec='docker exec -it'
+
 # Aliases - Vagrant
 alias v='vagrant'
 alias vup='vagrant up'
@@ -45,8 +50,20 @@ alias gshow='git show'
 # Aliases - Go
 alias gob='godep go build'
 
+# Aliases - Elixir
+alias mc='mix compile'
+alias mdg='mix deps.get'
+alias mdc='mix deps.clean'
+
 HISTSIZE=100000
 export CLICOLOR=1
+
+# Cloud credentials
+CLOUD_CREDENTIALS="$HOME/.cloud_credentials"
+if [ -f $CLOUD_CREDENTIALS ]
+then
+    source $CLOUD_CREDENTIALS
+fi
 
 ##################################################
 # Fancy PWD display function
@@ -153,6 +170,8 @@ then
 fi
 
 # Ruby & RVM
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
 RVM_DIR="$HOME/.rvm"
 if [ -f $RVM_DIR ]
 then
@@ -183,6 +202,9 @@ then
     export PATH="$HEROKU_TOOLBELT:$PATH"
 fi
 
+# Node
+[[ -s /Users/djm/.nvm/nvm.sh ]] && . /Users/djm/.nvm/nvm.sh
+
 # Docker via boot2docker
 BOOT2DOCKER='/usr/local/bin/boot2docker'
 if [ -f $BOOT2DOCKER ]
@@ -190,7 +212,10 @@ then
     $(boot2docker shellinit)
 fi
 
-# If nvm (node version manager) in installed, then use it.
-[[ -s /Users/djm/.nvm/nvm.sh ]] && . /Users/djm/.nvm/nvm.sh
+# Java
+export JAVA_HOME="/usr"
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# AWS Auto Scaling Tools
+export AWS_AUTO_SCALING_HOME="/usr/local/AutoScaling-1.0.61.6"
+export PATH=$PATH:$AWS_AUTO_SCALING_HOME/bin
+export AWS_CREDENTIAL_FILE="$HOME/.aws-credential-file"
