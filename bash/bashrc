@@ -1,6 +1,6 @@
-#
-# ~/.bash_profile
-#
+# ~/.bashrc
+# Author: Darian Moody
+# License: 2-clause BSD
 
 # If not running interactively, don't do anything.
 [[ $- != *i* ]] && return
@@ -8,13 +8,17 @@
 export LC_CTYPE=en_GB.UTF-8
 export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/System/Library/Frameworks/Python.framework/Versions/2.7/bin:$(brew --prefix coreutils)/libexec/gnubin:/usr/local/go/bin
+
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
+PATH=$PATH:/System/Library/Frameworks/Python.framework/Versions/2.7/bin
+PATH=$PATH:$(brew --prefix coreutils)/libexec/gnubin
+PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH
 
 export EDITOR=vim
 
 # Aliases
 alias ..='cd ..'
-alias nano='vim'
 
 # Aliases - Python
 alias clearpyc='find . -name "*.pyc" -exec rm -rf {} \;'
@@ -25,6 +29,9 @@ alias jsonify='python -mjson.tool'
 alias dc='docker-compose'
 alias dm='docker-machine'
 alias dexec='docker exec -it'
+alias dc-dev='docker-compose -f docker-compose-dev.yml'
+alias dc-prod='docker-compose -f docker-compose-prod.yml'
+alias b2d='$(boot2docker shellinit)'
 
 # Aliases - Vagrant
 alias v='vagrant'
@@ -65,16 +72,11 @@ then
     source $CLOUD_CREDENTIALS
 fi
 
-##################################################
-# Fancy PWD display function
-##################################################
-# The home directory (HOME) is replaced with a ~
-# The last pwdmaxlen characters of the PWD are displayed
-# Leading partial directory names are striped off
-# /home/me/stuff          -> ~/stuff               if USER=me
-# /usr/share/big_dir_name -> ../share/big_dir_name if pwdmaxlen=20
-##################################################
-bash_prompt_command() {
+# Source brew bash completion.
+source $(brew --prefix)/etc/bash_completion
+
+# Turns home dir into ~; truncates when `pwd` too long.
+truncated_pwd() {
     # How many characters of the $PWD should be kept
     local pwdmaxlen=25
     # Indicate that there has been dir truncation
@@ -90,7 +92,31 @@ bash_prompt_command() {
     fi
 }
 
-bash_prompt() {
+# Print nickname for git/hg/bzr/svn version control in CWD
+# Optional $1 of format string for printf, default "(%s) "
+function get_branch {
+  local dir="$PWD"
+  local vcs
+  local nick
+  while [[ "$dir" != "/" ]]; do
+    for vcs in git hg svn bzr; do
+      if [[ -d "$dir/.$vcs" ]] && hash "$vcs" &>/dev/null; then
+        case "$vcs" in
+          git) __git_ps1 "${1:-%s}"; return;;
+          hg) nick=$(hg branch 2>/dev/null);;
+          svn) nick=$(svn info 2>/dev/null\
+                | grep -e '^Repository Root:'\
+                | sed -e 's#.*/##');;
+        esac
+        [[ -n "$nick" ]] && printf "${1:-(%s) }" "$nick"
+        return 0
+      fi
+    done
+    dir="$(dirname "$dir")"
+  done
+}
+
+set_ps1() {
     case $TERM in
      xterm*|rxvt*)
          local TITLEBAR='\[\033]0;\h: \W\007\]'
@@ -121,27 +147,17 @@ bash_prompt() {
     local EMC="\[\033[1;36m\]"
     local EMW="\[\033[1;37m\]"
 
-    # background colors
-    local BGK="\[\033[40m\]"
-    local BGR="\[\033[41m\]"
-    local BGG="\[\033[42m\]"
-    local BGY="\[\033[43m\]"
-    local BGB="\[\033[44m\]"
-    local BGM="\[\033[45m\]"
-    local BGC="\[\033[46m\]"
-    local BGW="\[\033[47m\]"
+    local UC=$EMG                 # user's color
+    [ $UID -eq "0" ] && UC=$EMR   # root's color
 
-    local UC=$W                 # user's color
-    [ $UID -eq "0" ] && UC=$R   # root's color
-
-    PS1="$TITLEBAR${W}[${EMG}\u${EMC}:${EMB}\${NEW_PWD}${W}]${UC}\\$ ${NONE}"
-    # without colors: PS1="[\u@\h \${NEW_PWD}]\\$ "
-    # extra backslash in front of \$ to make bash colorize the prompt
+    PS1="$TITLEBAR${W}[${UC}\u${C}:${B}\${NEW_PWD}${C}:${M}\$(get_branch "$2")${W}]\n${UC}\\$ ${NONE}"
 }
 
+
 PROMPT_COMMAND=bash_prompt_command
-bash_prompt
-unset bash_prompt
+export GIT_PS1_SHOWDIRTYSTATE=yes
+set_ps1
+unset set_ps1
 
 # Bash completion for homebrew.
 if [ -f `brew --prefix`/etc/bash_completion ]; then
@@ -204,13 +220,6 @@ fi
 
 # Node
 [[ -s /Users/djm/.nvm/nvm.sh ]] && . /Users/djm/.nvm/nvm.sh
-
-# Docker via boot2docker
-BOOT2DOCKER='/usr/local/bin/boot2docker'
-if [ -f $BOOT2DOCKER ]
-then
-    $(boot2docker shellinit)
-fi
 
 # Java
 export JAVA_HOME="/usr"
