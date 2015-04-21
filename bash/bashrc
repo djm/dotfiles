@@ -34,9 +34,8 @@ alias dc-prod='docker-compose -f docker-compose-prod.yml'
 alias b2d='$(boot2docker shellinit)'
 
 # Aliases - Screen
-alias "screen new"="screen -S"
-alias "screen list"="screen -ls"
-alias "screen attach"="screen -dRR"
+alias screen-list="screen -ls"
+alias screen-attach="screen -dRR"
 
 # Aliases - Vagrant
 alias v='vagrant'
