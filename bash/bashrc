@@ -33,6 +33,11 @@ alias dc-dev='docker-compose -f docker-compose-dev.yml'
 alias dc-prod='docker-compose -f docker-compose-prod.yml'
 alias b2d='$(boot2docker shellinit)'
 
+# Aliases - Screen
+alias "screen new"="screen -S"
+alias "screen list"="screen -ls"
+alias "screen attach"="screen -dRR"
+
 # Aliases - Vagrant
 alias v='vagrant'
 alias vup='vagrant up'
@@ -46,6 +51,7 @@ alias vp='vagrant provision'
 # Aliases - Git
 alias gb='git blame'
 alias gc='git commit'
+alias gco='git checkout'
 alias gd='git diff'
 alias gm='git merge'
 alias gp='git push'
@@ -102,7 +108,7 @@ function get_branch {
     for vcs in git hg svn bzr; do
       if [[ -d "$dir/.$vcs" ]] && hash "$vcs" &>/dev/null; then
         case "$vcs" in
-          git) __git_ps1 "${1:-%s}"; return;;
+          git) __git_ps1 "${1:-(%s) }"; return;;
           hg) nick=$(hg branch 2>/dev/null);;
           svn) nick=$(svn info 2>/dev/null\
                 | grep -e '^Repository Root:'\
@@ -150,11 +156,11 @@ set_ps1() {
     local UC=$EMG                 # user's color
     [ $UID -eq "0" ] && UC=$EMR   # root's color
 
-    PS1="$TITLEBAR${W}[${UC}\u${C}:${B}\${NEW_PWD}${C}:${M}\$(get_branch "$2")${W}]\n${UC}\\$ ${NONE}"
+    PS1="$TITLEBAR${W}[${UC}\u${B}:\${NEW_PWD}${M}\$(get_branch ":%s")${W}]\n${UC}\\$ ${NONE}"
 }
 
 
-PROMPT_COMMAND=bash_prompt_command
+PROMPT_COMMAND=truncated_pwd
 export GIT_PS1_SHOWDIRTYSTATE=yes
 set_ps1
 unset set_ps1
