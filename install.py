@@ -12,6 +12,8 @@ SYMLINKS = (
     ('bash/bashrc', '~/.bashrc'),
     ('bash/bash_profile', '~/.bash_profile'),
     ('bash/inputrc', '~/.inputrc'),
+    # Ag - silver searcher.
+    ('ag/agignore', '~/.agignore'),
     # Git
     ('git/gitconfig', '~/.gitconfig'),
     ('git/gitignore', '~/.gitignore'),
@@ -24,6 +26,7 @@ SYMLINKS = (
     # Python
     ('python/flake8', '~/.config/flake8'),
 )
+
 
 POST_COMMANDS = (
     'vim +PluginInstall +qall',  # Install Vim packages via vundle.
