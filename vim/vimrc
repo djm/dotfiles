@@ -35,6 +35,7 @@ Plugin 'pangloss/vim-javascript'    " JS support.
 Plugin 'elixir-lang/vim-elixir'     " Elixir support.
 Plugin 'jimenezrick/vimerl'         " Erlang support.
 Plugin 'chrisbra/csv.vim'           " CSV support.
+Plugin 'wavded/vim-stylus'          " Stylus support.
 
 call vundle#end()
 
@@ -169,6 +170,9 @@ nnoremap <leader>gp :Git push<CR>
 " Split the window and swap to it.
 nnoremap <leader>s <C-w>v<C-w>l
 
+" Delete the file on disk but keep the buffer.
+nnoremap <leader>rm :call delete(expand('%'))<CR>
+
 " Toggle the 80-char column on & off.
 nnoremap <leader>c :call ColumnToggle()<CR>
 
@@ -179,8 +183,9 @@ nnoremap <leader>n :call NumberToggle()<CR>
 nnoremap <leader>F :update<CR>:e ++ff=dos<CR>:setlocal ff=unix<CR>:w<CR>
 
 " Use leader + number to indicate tab spacing settings.
-nnoremap <leader>2 :setlocal sw=2 ts=2 sts=2<CR>
-nnoremap <leader>4 :setlocal sw=4 ts=4 sts=4<CR>
+nnoremap <leader>2 :setlocal sw=2 ts=2 sts=2 expandtab<CR>
+nnoremap <leader>4 :setlocal sw=4 ts=4 sts=4 expandtab<CR>
+nnoremap <leader><tab> :setlocal sw=4 ts=4 sts=4 noexpandtab<CR>
 
 " Gundo configuration.
 nnoremap <leader>g :GundoToggle<CR> " gundo
@@ -204,6 +209,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'passive_filetypes': ['html'] }
 let g:syntastic_auto_loc_list=1
 let g:syntastic_python_checkers = ["flake8"]
+let g:syntastic_javascript_checkers = ["standard"]
 
 function! ColumnToggle()
 " Toggles the 80-char column.
