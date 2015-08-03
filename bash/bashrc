@@ -13,6 +13,7 @@ PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 PATH=$PATH:/System/Library/Frameworks/Python.framework/Versions/2.7/bin
 PATH=$PATH:$(brew --prefix coreutils)/libexec/gnubin
 PATH=$PATH:/usr/local/go/bin
+PATH=$PATH:/usr/local/terraform
 export PATH=$PATH
 
 export EDITOR=vim
@@ -67,7 +68,14 @@ alias mc='mix compile'
 alias mdg='mix deps.get'
 alias mdc='mix deps.clean'
 
-HISTSIZE=100000
+# History
+export HISTCONTROL=ignoredups:erasedups
+export HISTSIZE=100000
+export HISTFILESIZE=100000
+shopt -s histappend
+# Save and reload the history after each command finishes
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
 export CLICOLOR=1
 
 # Cloud credentials
@@ -233,3 +241,6 @@ export JAVA_HOME="/usr"
 export AWS_AUTO_SCALING_HOME="/usr/local/AutoScaling-1.0.61.6"
 export PATH=$PATH:$AWS_AUTO_SCALING_HOME/bin
 export AWS_CREDENTIAL_FILE="$HOME/.aws-credential-file"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
