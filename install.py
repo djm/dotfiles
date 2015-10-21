@@ -17,6 +17,7 @@ SYMLINKS = (
     # Git
     ('git/gitconfig', '~/.gitconfig'),
     ('git/gitignore', '~/.gitignore'),
+    ('git/git_commit_message.txt', '~/.git_commit_message.txt'),
     # Mercurial
     ('hg/hgext', '~/.hgext'),
     ('hg/hgrc', '~/.hgrc'),
