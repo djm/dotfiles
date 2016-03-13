@@ -16,6 +16,7 @@
 [core]
   excludesfile = ~/.gitignore
   editor = /usr/bin/vim
+  autocrlf = input
 
 [merge]
   ff = false
@@ -26,7 +27,7 @@
 [user]
   name = Darian Moody
   email = mail@djm.org.uk
-  
+
 [github]
   user = djm
 
