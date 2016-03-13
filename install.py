@@ -24,6 +24,9 @@ SYMLINKS = (
     # Vim
     ('vim/vimrc', '~/.vimrc'),
     ('vim/vim', '~/.vim'),
+    # Emacs
+    ('emacs/spacemacs', '~/.spacemacs'),
+    ('emacs/spacemacs-layers', '~/.spacemacs-layers'),
     # Python
     ('python/flake8', '~/.config/flake8'),
 )
