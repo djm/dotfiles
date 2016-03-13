@@ -1,8 +1,10 @@
 # Editors
 *.sw[pon]
+.tern-port
 
 # Python
 *.pyc
+
 
 # Development
 .vagrant
