@@ -84,6 +84,20 @@ then
     source $CLOUD_CREDENTIALS
 fi
 
+# Bash completion for git.
+if [ -f ~/dotfiles/git/completion/git-completion.bash ]; then
+    . ~/dotfiles/git/completion/git-completion.bash
+fi
+
+if [ -f ~/dotfiles/git/completion/git-prompt.sh ]; then
+    . ~/dotfiles/git/completion/git-prompt.sh
+fi
+
+# Bash completion for git flow.
+if [ -f ~/dotfiles/git/completion/git-flow-completion.bash ]; then
+    . ~/dotfiles/git/completion/git-flow-completion.bash
+fi
+
 # Turns home dir into ~; truncates when `pwd` too long.
 truncated_pwd() {
     # How many characters of the $PWD should be kept
@@ -167,16 +181,6 @@ PROMPT_COMMAND=truncated_pwd
 export GIT_PS1_SHOWDIRTYSTATE=yes
 set_ps1
 unset set_ps1
-
-# Bash completion for git.
-if [ -f ~/dotfiles/git/git-completion.bash ]; then
-    . ~/dotfiles/git/git-completion.bash
-fi
-
-# Bash completion for git flow.
-if [ -f ~/dotfiles/git/git-flow-completion.bash ]; then
-    . ~/dotfiles/git/git-flow-completion.bash
-fi
 
 # Python
 VIRTUALENV_WRAPPER='/usr/local/bin/virtualenvwrapper.sh'
