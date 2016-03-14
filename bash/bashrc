@@ -10,8 +10,6 @@ export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
-PATH=$PATH:/System/Library/Frameworks/Python.framework/Versions/2.7/bin
-PATH=$PATH:$(brew --prefix coreutils)/libexec/gnubin
 PATH=$PATH:/usr/local/go/bin
 PATH=$PATH:/usr/local/terraform
 export PATH=$PATH
@@ -84,9 +82,6 @@ if [ -f $CLOUD_CREDENTIALS ]
 then
     source $CLOUD_CREDENTIALS
 fi
-
-# Source brew bash completion.
-source $(brew --prefix)/etc/bash_completion
 
 # Turns home dir into ~; truncates when `pwd` too long.
 truncated_pwd() {
@@ -172,11 +167,6 @@ export GIT_PS1_SHOWDIRTYSTATE=yes
 set_ps1
 unset set_ps1
 
-# Bash completion for homebrew.
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
-fi
-
 # Bash completion for git.
 if [ -f ~/dotfiles/git/git-completion.bash ]; then
     . ~/dotfiles/git/git-completion.bash
@@ -186,10 +176,6 @@ fi
 if [ -f ~/dotfiles/git/git-flow-completion.bash ]; then
     . ~/dotfiles/git/git-flow-completion.bash
 fi
-
-# To stop clang errors thanks to Xcode updates.
-# https://langui.sh/2014/03/10/wunused-command-line-argument-hard-error-in-future-is-a-harsh-mistress/
-export ARCHFLAGS="-Wno-error=unused-command-line-argument-hard-error-in-future"
 
 # Python
 VIRTUALENV_WRAPPER='/usr/local/bin/virtualenvwrapper.sh'
