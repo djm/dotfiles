@@ -1,40 +1,41 @@
 [alias]
-  co = checkout
-  ci = commit
-  st = status
-  br = branch
-  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-  type = cat-file -t
-  dump = cat-file -p
-  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+    co = checkout
+    ci = commit
+    st = status
+    br = branch
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    type = cat-file -t
+    dump = cat-file -p
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 
 [color]
-  diff = auto
-  branch = auto
-  status = auto
+    diff = auto
+    branch = auto
+    status = auto
 
 [core]
-  excludesfile = ~/.gitignore
-  editor = /usr/bin/vim
-  autocrlf = input
+    excludesfile = ~/.gitignore
+    editor = /usr/bin/vim
+    autocrlf = input
 
 [merge]
-  ff = false
+    ff = false
 
 [rerere]
-  enabled = 1
+    enabled = 1
 
 [user]
-  name = Darian Moody
-  email = mail@djm.org.uk
+    name = Darian Moody
+    email = mail@djm.org.uk
 
 [github]
-  user = djm
+    user = djm
 
 [hub]
-  protocol = ssh
+    protocol = ssh
 
 [push]
-  default = matching
+    default = matching
+
 [commit]
-	template = /Users/djm/.git_commit_msg.txt
+    template = ~/.git_commit_msg.txt
