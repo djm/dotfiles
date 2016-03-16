@@ -10,6 +10,7 @@ export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
+PATH=$PATH:~/bin
 PATH=$PATH:/usr/local/go/bin
 PATH=$PATH:/usr/local/terraform
 export PATH=$PATH
@@ -83,6 +84,10 @@ if [ -f $CLOUD_CREDENTIALS ]
 then
     source $CLOUD_CREDENTIALS
 fi
+
+# Use bash-completion, if available
+[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
+    . /usr/share/bash-completion/bash_completion
 
 # Bash completion for git.
 if [ -f ~/dotfiles/git/completion/git-completion.bash ]; then
@@ -200,13 +205,9 @@ fi
 
 
 # Go
-GO="/usr/local/go/bin/go"
-if [ -f $GO ]
-then
-    export GOPATH=$HOME/src/go
-    export GOBIN=$GOPATH/bin
-    export PATH=$PATH:$GOBIN
-fi
+export GOPATH=$HOME/src/golang
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
 
 # Google App Engine SDK
 APPENGINE_SDK='/usr/local/google_appengine/'
