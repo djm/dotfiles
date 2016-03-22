@@ -12,30 +12,31 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/vundle'              " the package manager itself.
+Plugin 'gmarik/Vundle.vim'              " the package manager itself.
 
-Plugin 'nanotech/jellybeans.vim'    " jellybeans colorscheme.
-Plugin 'tomasr/molokai'             " molokai colorscheme.
-Plugin 'altercation/solarized'      " solarized colorscheme.
-Plugin 'mileszs/ack.vim'            " support for ack inside vim.
-Plugin 'kien/ctrlp.vim'             " full path fuzzy file finder.
-Plugin 'sjl/gundo.vim'              " visualises the vim undo tree.
-Plugin 'scrooloose/syntastic'       " better syntax hightlighting support.
-Plugin 'YankRing.vim'               " maintains a history of yanks.
-Plugin 'lilydjwg/colorizer'         " hex/rgb colours inline.
-Plugin 'tpope/vim-fugitive'         " adds git support.
-Plugin 'tpope/vim-vinegar'          " simple dir browsing.
-Plugin 'bling/vim-airline'          " better status line.
-Plugin 'jmcantrell/vim-virtualenv'  " Virtualenv support.
-Plugin 'hail2u/vim-css3-syntax'     " CSS3 support.
-Plugin 'groenewege/vim-less'        " LESS support.
-Plugin 'chase/vim-ansible-yaml'     " Ansible support.
-Plugin 'fatih/vim-go'               " Golang support.
-Plugin 'pangloss/vim-javascript'    " JS support.
-Plugin 'elixir-lang/vim-elixir'     " Elixir support.
-Plugin 'jimenezrick/vimerl'         " Erlang support.
-Plugin 'chrisbra/csv.vim'           " CSV support.
-Plugin 'wavded/vim-stylus'          " Stylus support.
+Plugin 'nanotech/jellybeans.vim'        " jellybeans colorscheme.
+Plugin 'tomasr/molokai'                 " molokai colorscheme.
+Plugin 'altercation/solarized'          " solarized colorscheme.
+Plugin 'mileszs/ack.vim'                " support for ack inside vim.
+Plugin 'kien/ctrlp.vim'                 " full path fuzzy file finder.
+Plugin 'sjl/gundo.vim'                  " visualises the vim undo tree.
+Plugin 'scrooloose/syntastic'           " better syntax hightlighting support.
+Plugin 'YankRing.vim'                   " maintains a history of yanks.
+Plugin 'lilydjwg/colorizer'             " hex/rgb colours inline.
+Plugin 'tpope/vim-fugitive'             " adds git support.
+Plugin 'tpope/vim-vinegar'              " simple dir browsing.
+Plugin 'bling/vim-airline'              " better status line.
+Plugin 'jmcantrell/vim-virtualenv'      " Virtualenv support.
+Plugin 'hail2u/vim-css3-syntax'         " CSS3 support.
+Plugin 'groenewege/vim-less'            " LESS support.
+Plugin 'chase/vim-ansible-yaml'         " Ansible support.
+Plugin 'fatih/vim-go'                   " Golang support.
+Plugin 'pangloss/vim-javascript'        " JS support.
+Plugin 'elixir-lang/vim-elixir'         " Elixir support.
+Plugin 'jimenezrick/vimerl'             " Erlang support.
+Plugin 'chrisbra/csv.vim'               " CSV support.
+Plugin 'wavded/vim-stylus'              " Stylus support.
+Plugin 'ntpeters/vim-better-whitespace' " better visual whitespace support.
 
 call vundle#end()
 
