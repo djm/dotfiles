@@ -236,3 +236,9 @@ function! NumberToggle()
         setlocal nonumber
     endif
 endfunction
+
+" Google specific settings - only run while inside Google.
+if filereadable(googlevim)
+  Glug piper plugin[mappings]
+  Glug relatedfiles plugin[mappings]
+end
