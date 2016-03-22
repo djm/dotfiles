@@ -147,10 +147,6 @@ noremap <C-l> <C-w>l
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 
-" Highlight trailing whitespace.
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-
 " Highlight TODO statements.
 match Todo /\s\+$/
 
