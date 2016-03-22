@@ -100,6 +100,9 @@ set hlsearch                " keep previous search highlighted.
 set incsearch               " highlight matches while typing.
 set gdefault                " use global line replacement by default.
 
+set guioptions-=m           " gui: remove menu
+set guioptions-=T           " gui: remove toolbar
+
 " Remap space to be our leader key.
 nnoremap <space> <nop>
 let mapleader = "\<space>"
