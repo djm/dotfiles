@@ -200,7 +200,7 @@ nnoremap <leader>g :GundoToggle<CR> " gundo
 let g:airline#extensions#tabline#enabled = 1
 
 " Ctrl-p configuration.
-let g:ctrlp_map = '<leader>o'
+let g:ctrlp_map = '<leader>pf'
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_use_caching = 200 " disable path caching for small dirs.
