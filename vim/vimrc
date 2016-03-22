@@ -40,6 +40,12 @@ Plugin 'ntpeters/vim-better-whitespace' " better visual whitespace support.
 
 call vundle#end()
 
+" Source Google vim helpers - only run while inside Google.
+let googlevim = "/usr/share/vim/google/google.vim"
+if filereadable(googlevim)
+    exec 'source '.fnameescape(googlevim)
+end
+
 " Set filetype for 'odd' file extensions.
 au BufNewFile,BufRead *.dump set filetype=sql
 au BufNewFile,BufRead *.wsgi set filetype=python
