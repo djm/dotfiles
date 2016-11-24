@@ -19,7 +19,6 @@ export EDITOR=vim
 
 # Aliases
 alias ..='cd ..'
-alias ls='ls --color'
 
 # Aliases - Python
 alias clearpyc='find . -name "*.pyc" -exec rm -rf {} \;'
