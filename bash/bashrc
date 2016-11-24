@@ -229,6 +229,9 @@ fi
 # Java
 export JAVA_HOME="/usr"
 
+# PHP
+alias composer="php /usr/local/bin/composer.phar"
+
 # AWS Auto Scaling Tools
 export AWS_AUTO_SCALING_HOME="/usr/local/AutoScaling-1.0.61.6"
 export PATH=$PATH:$AWS_AUTO_SCALING_HOME/bin

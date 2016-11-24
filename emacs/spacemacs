@@ -327,10 +327,17 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
+  ;; Disable flyspell (spell-check) globally.
+  (setq-default dotspacemacs-configuration-layers
+                '((spell-checking :variables spell-checking-enable-by-default nil)))
+
   ;; Enable editor config plugin.
   (editorconfig-mode 1)
+
   ;; Force confirm before quit.
   (setq confirm-kill-emacs 'y-or-n-p)
+
   ;; Globally disable smart parentheses
   (remove-hook 'prog-mode-hook #'smartparens-mode)
   (spacemacs/toggle-smartparens-globally-off)

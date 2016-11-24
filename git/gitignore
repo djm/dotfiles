@@ -1,10 +1,13 @@
 # Editors
 *.sw[pon]
+*.#*
 .tern-port
 
 # Python
 *.pyc
 
+# Search
+.agignore
 
 # Development
 .vagrant
