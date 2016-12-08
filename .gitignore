@@ -1,7 +1,17 @@
-*~
-*.swp
-tags
-*.pyc
-*.netrwhist
+# Editors
+*.sw[pon]
+*.#*
+.tern-port
 
-vim/vim/bundle/*
+# Python
+*.pyc
+
+# Search
+.agignore
+
+# Development
+.vagrant
+htmlcov
+
+# OS
+*.DS_Store

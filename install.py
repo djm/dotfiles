@@ -9,26 +9,29 @@ DOTFILES_DIR = os.path.expanduser('~/dotfiles/')
 
 SYMLINKS = (
     # Bash
-    ('bash/bashrc', '~/.bashrc'),
-    ('bash/bash_profile', '~/.bash_profile'),
-    ('bash/inputrc', '~/.inputrc'),
+    ('.bashrc', '~/.bashrc'),
+    ('.bash_profile', '~/.bash_profile'),
+    ('.bash_aliases', '~/.bash_aliases'),
+    ('.bash_functions', '~/.bash_functions'),
+    ('.bash_prompt', '~/.bash_prompt'),
+    ('.path', '~/.path'),
+    ('.inputrc', '~/.inputrc'),
     # Ag - silver searcher.
-    ('ag/agignore', '~/.agignore'),
+    ('.agignore', '~/.agignore'),
     # Git
-    ('git/gitconfig', '~/.gitconfig'),
-    ('git/gitignore', '~/.gitignore'),
-    ('git/git_commit_msg.txt', '~/.git_commit_msg.txt'),
+    ('.gitconfig', '~/.gitconfig'),
+    ('.gitignore', '~/.gitignore'),
+    ('.git_commit_msg.txt', '~/.git_commit_msg.txt'),
     # Mercurial
-    ('hg/hgext', '~/.hgext'),
-    ('hg/hgrc', '~/.hgrc'),
+    ('.hgext', '~/.hgext'),
+    ('.hgrc', '~/.hgrc'),
     # Vim
-    ('vim/vimrc', '~/.vimrc'),
-    ('vim/vim', '~/.vim'),
+    ('.vimrc', '~/.vimrc'),
+    ('.vim', '~/.vim'),
     # Emacs
-    ('emacs/spacemacs', '~/.spacemacs'),
-    ('emacs/spacemacs-layers', '~/.spacemacs-layers'),
+    ('.spacemacs', '~/.spacemacs'),
     # Python
-    ('python/flake8', '~/.config/flake8'),
+    ('.config/flake8', '~/.config/flake8'),
 )
 
 

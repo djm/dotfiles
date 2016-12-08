@@ -1,6 +1,0 @@
-# Elixir/Erlang
-erl_crash.dump
-deps
-
-# Node.js
-node_modules

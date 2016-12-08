@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+# Vim as the default editor.
+export EDITOR=vim
+
+# Prefer British English and use UTF-8.
+export LC_CTYPE=en_GB.UTF-8
+export LC_ALL=en_GB.UTF-8
+export LANG=en_GB.UTF-8
+
+# History - increase size and ignore dupes.
+export HISTCONTROL=ignoredups:erasedups
+export HISTSIZE=100000
+export HISTFILESIZE=100000
+
+# Save and reload the history after each command finishes
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+# Enable CLI coloring.
+export CLICOLOR=1
+
+# Highlight section titles in manual pages.
+export LESS_TERMCAP_md="${yellow}";
+
+# Don’t clear the screen after quitting a manual page.
+export MANPAGER='less -X';
+
+# Enable persistent REPL history for `node`.
+export NODE_REPL_HISTORY=~/.node_history;
+
+# Allow 32³ entries; the default is 1000.
+export NODE_REPL_HISTORY_SIZE='32768';
+
+# Use sloppy mode by default, matching web browsers.
+export NODE_REPL_MODE='sloppy';

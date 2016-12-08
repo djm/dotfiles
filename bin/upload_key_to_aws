@@ -1,8 +1,0 @@
-keyname=$USER
-publickeyfile=$HOME/.ssh/id_rsa.pub
-regions=$(aws ec2 describe-regions | jq -r ".Regions | .[] | .RegionName" | cut -f2)
-
-for region in $regions; do
-  echo $region
-  aws --region $region ec2 import-key-pair --key-name $keyname --public-key-material file://$publickeyfile
-done
