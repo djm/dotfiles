@@ -35,7 +35,7 @@
     protocol = ssh
 
 [push]
-    default = matching
+    default = simple
 
 [commit]
     template = ~/.git_commit_msg.txt
