@@ -51,6 +51,12 @@ brew install mercurial
 brew install ag
 brew install ack
 
+# Install directory tools
+brew install tree
+
+# Install 3rd party services
+brew install heroku
+
 # Install Casks
 brew install Caskroom/cask/hipchat
 brew install Caskroom/versions/slack-beta
