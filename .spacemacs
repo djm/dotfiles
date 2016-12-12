@@ -274,7 +274,7 @@ values."
    ;; If non nil show the color guide hint for transient state keys. (default t)
    dotspacemacs-show-transient-state-color-guide t
    ;; If non nil unicode symbols are displayed in the mode line. (default t)
-   dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-mode-line-unicode-symbols nil
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters point
    ;; when it reaches the top or bottom of the screen. (default t)
@@ -335,13 +335,6 @@ you should place your code here."
 
   ;; Enable editor config plugin.
   (editorconfig-mode 1)
-
-  ;;; Set powerline separator.
-  (setq powerline-default-separator 'utf-8)
-  (spaceline-compile)
-
-  ;; Show line numbers by default
-  (global-linum-mode)
 
   ;; Force confirm before quit.
   (setq confirm-kill-emacs 'y-or-n-p)
