@@ -20,7 +20,7 @@ values."
    ;; installation feature and you have to explicitly list a layer in the
    ;; variable `dotspacemacs-configuration-layers' to install it.
    ;; (default 'unused)
-   dotspacemacs-enable-lazy-installation 'nil
+   dotspacemacs-enable-lazy-installation 'unused
    ;; If non-nil then Spacemacs will ask for confirmation before installing
    ;; a layer lazily. (default t)
    dotspacemacs-ask-for-lazy-installation t
@@ -29,51 +29,28 @@ values."
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
+
    dotspacemacs-configuration-layers
    '(
+     python
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
-     ansible
-     auto-completion
-     better-defaults
-     colors
-     django
-     docker
+     ;; auto-completion
+     ;; better-defaults
      emacs-lisp
-     elixir
-     elm
-     erlang
-     emoji
      git
-     github
-     go
-     html
-     javascript
-     markdown
-     osx
-     php
-     purescript
-     puppet
-     python
-     react
-     ruby
-     rust
-     salt
-     shell
-     terraform
-     org
-     (shell :variables
-            shell-default-height 30
-            shell-default-position 'bottom)
-     spell-checking
+     ;; markdown
+     ;; org
+     ;; (shell :variables
+     ;;        shell-default-height 30
+     ;;        shell-default-position 'bottom)
+     ;; spell-checking
      syntax-checking
-     vagrant
      version-control
-     yaml
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -93,12 +70,7 @@ values."
    ;; `used-but-keep-unused' installs only the used packages but won't uninstall
    ;; them if they become unused. `all' installs *all* packages supported by
    ;; Spacemacs and never uninstall them. (default is `used-only')
-   dotspacemacs-install-packages 'used-only)
-
-   ;; Disable flyspell (spell-check) globally.
-   (setq-default dotspacemacs-configuration-layers
-                 '((spell-checking :variables spell-checking-enable-by-default nil)))
-  )
+   dotspacemacs-install-packages 'used-only))
 
 (defun dotspacemacs/init ()
   "Initialization function.
@@ -122,7 +94,7 @@ values."
    ;; when the current branch is not `develop'. Note that checking for
    ;; new versions works via git commands, thus it calls GitHub services
    ;; whenever you start Emacs. (default nil)
-   dotspacemacs-check-for-update t
+   dotspacemacs-check-for-update nil
    ;; If non-nil, a form that evaluates to a package directory. For example, to
    ;; use different package directories for different Emacs versions, set this
    ;; to `emacs-version'.
@@ -186,6 +158,8 @@ values."
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
    ;; (default "SPC")
    dotspacemacs-emacs-command-key "SPC"
+   ;; The key used for Vim Ex commands (default ":")
+   dotspacemacs-ex-command-key ":"
    ;; These variables control whether separate commands are bound in the GUI to
    ;; the key pairs C-i, TAB and C-m, RET.
    ;; Setting it to a non-nil value, allows for separate commands under <C-i>
@@ -323,7 +297,9 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  )
+  (setq-default
+    mac-right-option-modifier nil
+  ))
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
