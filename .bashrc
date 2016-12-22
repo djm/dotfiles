@@ -48,15 +48,7 @@ fi;
 # You could just use `-g` instead, but I like being explicit
 complete -W "NSGlobalDomain" defaults;
 
-
-
 ####################
-
-PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
-PATH=$PATH:~/bin
-PATH=$PATH:/usr/local/go/bin
-PATH=$PATH:/usr/local/terraform
-export PATH=$PATH
 
 # Python
 VIRTUALENV_WRAPPER='/usr/local/bin/virtualenvwrapper.sh'
@@ -68,30 +60,11 @@ fi
 # Ruby & RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-RVM_DIR="$HOME/.rvm"
-if [ -f $RVM_DIR ]
-then
-    export PATH="$PATH:$HOME/.rvm/bin"
-fi
-
-
-# Go
-export GOPATH=$HOME/src/golang
-export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOBIN
-
 # Google App Engine SDK
 APPENGINE_SDK='/usr/local/google_appengine/'
 if [ -f $APPENGINE_SDK ]
 then
     export PYTHONPATH="$APPENGINE_SDK:$PYTHONPATH"
-fi
-
-# Heroku Toolbelt
-HEROKU_TOOLBELT='/usr/local/heroku/bin'
-if [ -f $HEROKU_TOOLBELT ]
-then
-    export PATH="$HEROKU_TOOLBELT:$PATH"
 fi
 
 # Node
@@ -103,10 +76,5 @@ export JAVA_HOME="/usr"
 # PHP
 alias composer="php /usr/local/bin/composer.phar"
 
-# AWS Auto Scaling Tools
-export AWS_AUTO_SCALING_HOME="/usr/local/AutoScaling-1.0.61.6"
-export PATH=$PATH:$AWS_AUTO_SCALING_HOME/bin
+# AWS
 export AWS_CREDENTIAL_FILE="$HOME/.aws-credential-file"
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
