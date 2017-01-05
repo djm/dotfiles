@@ -59,8 +59,9 @@ brew install heroku
 
 # Install Casks
 brew install Caskroom/cask/hipchat
-brew install Caskroom/versions/slack-beta
 brew install Caskroom/cask/macdown
+brew install Caskroom/cask/keepassx
+brew install Caskroom/versions/slack-beta
 
 # Install some fonts
 brew tap caskroom/fonts
