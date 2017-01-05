@@ -32,6 +32,8 @@ values."
 
    dotspacemacs-configuration-layers
    '(
+     markdown
+     javascript
      html
      python
      ;; ----------------------------------------------------------------
