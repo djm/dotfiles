@@ -9,7 +9,7 @@
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.exports can be used for global env vars.
 for file in ~/.{path,bash_aliases,bash_functions,bash_prompt,cloud_credentials,exports}; do
-	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+	source "$file";
 done;
 unset file;
 
@@ -51,11 +51,7 @@ complete -W "NSGlobalDomain" defaults;
 ####################
 
 # Python
-VIRTUALENV_WRAPPER='/usr/local/bin/virtualenvwrapper.sh'
-if [ -f $VIRTUALENV_WRAPPER ]
-then
-    source $VIRTUALENV_WRAPPER
-fi
+eval "$(pyenv init -)"
 
 # Ruby & RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
@@ -73,8 +69,21 @@ fi
 # Java
 export JAVA_HOME="/usr"
 
+# Rust
+[[ -s $HOME/.cargo/env ]] && . $HOME/.cargo/env && export PATH="$HOME/.cargo/bin:$PATH"
+
 # PHP
 alias composer="php /usr/local/bin/composer.phar"
 
 # AWS
 export AWS_CREDENTIAL_FILE="$HOME/.aws-credential-file"
+
+# direnv
+eval "$(direnv hook bash)"
+
+# Travis
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# gpg
+export GPG_TTY=$(tty)
