@@ -7,6 +7,7 @@
     type = cat-file -t
     dump = cat-file -p
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+    recent = for-each-ref --sort=-committerdate --count=20 --format='%(refname:short)' refs/heads/
 
 [color]
     diff = auto
@@ -27,6 +28,9 @@
 [user]
     name = Darian Moody
     email = mail@djm.org.uk
+    # Not private, only used to decide
+    # which key to select in GnuPG
+    signingkey = 0E3657CF31B800F5
 
 [github]
     user = djm
@@ -39,3 +43,4 @@
 
 [commit]
     template = ~/.git_commit_msg.txt
+    gpgsign = true
