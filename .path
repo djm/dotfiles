@@ -7,4 +7,7 @@ PATH=$PATH:/usr/local/go/bin
 PATH=$PATH:/usr/local/terraform
 PATH=$PATH:$HOME/.rvm/bin
 PATH=$PATH:/usr/local/heroku/bin
+PATH=$PATH:~/.cargo/bin
+PATH=$PATH:~/.yarn/bin
+PATH=$PATH:$(yarn global bin)
 export PATH=$PATH
