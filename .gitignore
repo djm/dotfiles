@@ -2,9 +2,11 @@
 *.sw[pon]
 *.#*
 .tern-port
+.vscode
 
 # Python
 *.pyc
+*.python-version
 
 # Search
 .agignore
