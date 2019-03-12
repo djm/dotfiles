@@ -6,8 +6,8 @@ alias .....="cd ../../../.."
 
 # Python
 alias clearpyc='find . -name "*.pyc" -exec rm -rf {} \;'
-alias serve='python -m SimpleHTTPServer'
-alias jsonify='python -mjson.tool'
+alias serve='python3 -m http.server'
+alias jsonify='python3 -m json.tool'
 
 # Aliases - Docker
 alias dc='docker-compose'
