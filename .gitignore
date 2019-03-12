@@ -3,6 +3,7 @@
 *.#*
 .tern-port
 .vscode
+*.code-workspace
 
 # Python
 *.pyc
