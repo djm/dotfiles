@@ -42,6 +42,10 @@ alias gs='git status'
 alias gref='git reflog'
 alias gshow='git show'
 
+# Forego
+alias fgr='forego run'
+alias fgs='forego start'
+
 # Golang
 alias gob='godep go build'
 
