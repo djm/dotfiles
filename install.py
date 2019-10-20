@@ -16,6 +16,7 @@ SYMLINKS = (
     ('.bash_prompt', '~/.bash_prompt'),
     ('.path', '~/.path'),
     ('.inputrc', '~/.inputrc'),
+    ('.hushlogin', '~/.hushlogin'),
     # Ag - silver searcher.
     ('.agignore', '~/.agignore'),
     # Git
