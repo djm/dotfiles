@@ -53,6 +53,10 @@ alias gob='godep go build'
 alias mc='mix compile'
 alias mdg='mix deps.get'
 
+# Forego
+alias fgs='forego start'
+alias fgr='forego run'
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
     colorflag="--color"

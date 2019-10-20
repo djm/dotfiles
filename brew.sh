@@ -57,14 +57,14 @@ brew install tree
 # Install 3rd party services
 brew install heroku
 
-# Install Casks
-brew install Caskroom/cask/hipchat
-brew install Caskroom/cask/macdown
-brew install Caskroom/cask/keepassx
-brew install Caskroom/versions/slack-beta
-
 # Install some fonts
 brew tap caskroom/fonts
 brew cask install font-inconsolata
+
+brew install pyenv
+brew install direnv
+brew install nvm
+brew install yarn
+brew install forego
 
 brew cleanup
