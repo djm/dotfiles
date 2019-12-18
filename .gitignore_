@@ -1,0 +1,23 @@
+# Editors
+*.sw[pon]
+*.#*
+.tern-port
+.vscode
+*.code-workspace
+
+# Python
+*.pyc
+*.python-version
+
+# Search
+.agignore
+
+# Development
+.vagrant
+htmlcov
+
+# OS
+*.DS_Store
+
+# Elixir
+.elixir_ls

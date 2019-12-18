@@ -30,7 +30,7 @@
     email = mail@djm.org.uk
     # Not private, only used to decide
     # which key to select in GnuPG
-    signingkey = 0E3657CF31B800F5
+    signingkey = A359F245B4BBC394
 
 [github]
     user = djm
@@ -44,3 +44,5 @@
 [commit]
     template = ~/.git_commit_msg.txt
     gpgsign = true
+[gpg]
+	program = gpg

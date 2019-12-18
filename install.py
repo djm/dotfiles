@@ -3,17 +3,17 @@
 import subprocess
 import os
 
-
-REPO = 'git@github.com:djm/dotfiles.git'
-DOTFILES_DIR = os.path.expanduser('~/dotfiles/')
+DOTFILES_DIR = os.path.expanduser('~/Source/dotfiles/')
 
 SYMLINKS = (
+    ('.aliases', '~/.aliases'),
     # Bash
     ('.bashrc', '~/.bashrc'),
     ('.bash_profile', '~/.bash_profile'),
-    ('.bash_aliases', '~/.bash_aliases'),
-    ('.bash_functions', '~/.bash_functions'),
     ('.bash_prompt', '~/.bash_prompt'),
+    # Zsh
+    ('.zshrc', '~/.zshrc'),
+    # Shell bits
     ('.path', '~/.path'),
     ('.inputrc', '~/.inputrc'),
     ('.hushlogin', '~/.hushlogin'),
@@ -21,7 +21,7 @@ SYMLINKS = (
     ('.agignore', '~/.agignore'),
     # Git
     ('.gitconfig', '~/.gitconfig'),
-    ('.gitignore', '~/.gitignore'),
+    ('.gitignore_', '~/.gitignore'),
     ('.git_commit_msg.txt', '~/.git_commit_msg.txt'),
     # Mercurial
     ('.hgext', '~/.hgext'),
@@ -50,6 +50,9 @@ def install_dotfiles():
     print(underline('Creating symlinks'))
     for orig_loc, symlink in SYMLINKS:
         symlink = os.path.expanduser(symlink)
+        symlink_dir = os.path.dirname(symlink)
+        if not os.path.exists(symlink_dir):
+            os.makedirs(symlink_dir)
         orig_loc = '{}{}'.format(DOTFILES_DIR, orig_loc)
         create_symlink(orig_loc, symlink)
         print ("")
