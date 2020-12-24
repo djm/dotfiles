@@ -14,19 +14,17 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'              " the package manager itself.
 
-Plugin 'nanotech/jellybeans.vim'        " jellybeans colorscheme.
 Plugin 'tomasr/molokai'                 " molokai colorscheme.
 Plugin 'altercation/solarized'          " solarized colorscheme.
 Plugin 'mileszs/ack.vim'                " support for ack inside vim.
 Plugin 'kien/ctrlp.vim'                 " full path fuzzy file finder.
 Plugin 'sjl/gundo.vim'                  " visualises the vim undo tree.
-Plugin 'scrooloose/syntastic'           " better syntax hightlighting support.
+Plugin 'scrooloose/syntastic'           " better syntax hightlighting & validation.
 Plugin 'YankRing.vim'                   " maintains a history of yanks.
 Plugin 'lilydjwg/colorizer'             " hex/rgb colours inline.
 Plugin 'tpope/vim-fugitive'             " adds git support.
 Plugin 'tpope/vim-vinegar'              " simple dir browsing.
 Plugin 'bling/vim-airline'              " better status line.
-Plugin 'jmcantrell/vim-virtualenv'      " Virtualenv support.
 Plugin 'hail2u/vim-css3-syntax'         " CSS3 support.
 Plugin 'groenewege/vim-less'            " LESS support.
 Plugin 'chase/vim-ansible-yaml'         " Ansible support.
@@ -58,7 +56,7 @@ au FocusLost * :wa          " saves all files automatically on losing focus.
 filetype plugin indent on   " detect file type and load indents and plugins.
 syntax on                   " enable syntax highlighting.
 set t_Co=256                " enable 256 colours support.
-colorscheme jellybeans      " sets the default colorscheme. Options options: molokai, solarized.
+colorscheme molokai      " sets the default colorscheme. Options options: molokai, solarized.
 
 set autoread                " reload the buffer when files are changed externally.
 set clipboard=unnamed       " yank using system clipboard.
@@ -214,6 +212,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': ['html'] }
 let g:syntastic_auto_loc_list=1
+let g:syntastic_python_checkers=['flake8']
 
 function! ColumnToggle()
 " Toggles the 80-char column.
