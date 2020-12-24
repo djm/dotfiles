@@ -16,25 +16,11 @@ brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew install gnu-sed --with-default-names
 
-# Install Bash 4. Then switch to it.
-brew install bash
-brew tap homebrew/versions
-brew install bash-completion2
-
-# Switch to using brew-installed bash as default shell
-if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
-  echo '/usr/local/bin/bash' | sudo tee -a /etc/shells;
-  chsh -s /usr/local/bin/bash;
-fi;
-
 # Install `wget` with IRI support.
 brew install wget --with-iri
 
 # Install more recent versions of some macOS tools.
 brew install vim --override-system-vi
-brew install homebrew/dupes/grep
-brew install homebrew/dupes/openssh
-brew install homebrew/dupes/screen
 
 # Install some CTF tools; see https://github.com/ctfs/write-ups.
 brew install nmap
@@ -55,16 +41,16 @@ brew install ack
 brew install tree
 
 # Install 3rd party services
+brew tap heroku/brew
 brew install heroku
-
-# Install some fonts
-brew tap caskroom/fonts
-brew cask install font-inconsolata
 
 brew install pyenv
 brew install direnv
-brew install nvm
 brew install yarn
 brew install forego
+
+# Install AWS SAM CLI
+brew tap aws/tap
+brew install aws-sam-cli
 
 brew cleanup
