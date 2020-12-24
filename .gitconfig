@@ -46,3 +46,8 @@
     gpgsign = true
 [gpg]
 	program = gpg
+[pager]
+	branch = false
+	tag = false
+[pull]
+	ff = only
