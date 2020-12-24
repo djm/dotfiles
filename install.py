@@ -37,7 +37,10 @@ SYMLINKS = (
 
 
 POST_COMMANDS = (
-    'vim +PluginInstall +qall',  # Install Vim packages via vundle.
+    # Install zgen
+    'git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"',
+    # Install Vim packages via vundle.
+    'vim +PluginInstall +qall',
 )
 
 

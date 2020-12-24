@@ -1,30 +1,38 @@
-source ~/Source/dotfiles/antigen.zsh
+zmodload zsh/zprof
 
-antigen use oh-my-zsh
+source "${HOME}/.zgen/zgen.zsh"
 
-antigen bundle aws
-antigen bundle brew
-antigen bundle cargo
-antigen bundle command-not-found
-antigen bundle docker
-antigen bundle git
-antigen bundle heroku
-antigen bundle history-substring-search
-antigen bundle npm
-antigen bundle nvm
-antigen bundle osx
-antigen bundle pyenv
-antigen bundle python
-antigen bundle pip
-antigen bundle history-substring-search
+# if the init scipt doesn't exist
+if ! zgen saved; then
+    echo "Creating a zgen save"
 
-antigen bundle mafredri/zsh-async
-antigen bundle sindresorhus/pure
+    zgen oh-my-zsh
 
-# Syntax-highlighting must be last
-antigen bundle zsh-users/zsh-syntax-highlighting
+    # plugins
+    zgen oh-my-zsh plugins/cargo
+    zgen oh-my-zsh plugins/command-not-found
+    zgen oh-my-zsh plugins/docker
+    zgen oh-my-zsh plugins/git
+    zgen oh-my-zsh plugins/heroku
+    zgen oh-my-zsh plugins/history-substring-search
+    zgen oh-my-zsh plugins/npm
+    zgen oh-my-zsh plugins/osx
+    zgen oh-my-zsh plugins/pyenv
+    zgen oh-my-zsh plugins/pip
+    zgen oh-my-zsh plugins/sudo
 
-antigen apply
+    # syntax highlighting
+    zgen load zsh-users/zsh-syntax-highlighting
+
+    # completions
+    zgen load zsh-users/zsh-completions src
+
+    # theme
+    zgen load sindresorhus/pure
+
+    # save all to init script
+    zgen save
+fi
 
 source ~/.aliases
 source ~/.path
@@ -34,10 +42,11 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
 
-# nvm setup
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
 # GPG Setup
 export GPG_TTY=$(tty)
+
+source /Users/djm/Library/Preferences/org.dystroy.broot/launcher/bash/br
+export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
+
+# Enable Erlang/Elixir shell history
+export ERL_AFLAGS="-kernel shell_history enabled"
