@@ -7,10 +7,11 @@ DOTFILES_DIR = os.path.expanduser('~/Source/dotfiles/')
 
 SYMLINKS = (
     ('.aliases', '~/.aliases'),
-    # Bash
-    ('.bashrc', '~/.bashrc'),
-    ('.bash_profile', '~/.bash_profile'),
-    ('.bash_prompt', '~/.bash_prompt'),
+    # Bash - disabled due to switch to zsh
+    # but kept around for posterity.
+    # ('.bashrc', '~/.bashrc'),
+    # ('.bash_profile', '~/.bash_profile'),
+    # ('.bash_prompt', '~/.bash_prompt'),
     # Zsh
     ('.zshrc', '~/.zshrc'),
     # Shell bits
