@@ -20,16 +20,6 @@ alias dc-prod='docker-compose -f docker-compose-prod.yml'
 alias screen-list="screen -ls"
 alias screen-attach="screen -dRR"
 
-# Vagrant
-alias v='vagrant'
-alias vup='vagrant up'
-alias vssh='vagrant ssh'
-alias vin='vagrant up && vagrant ssh'
-alias vh='vagrant halt'
-alias vd='vagrant destroy'
-alias vr='vagrant reload'
-alias vp='vagrant provision'
-
 # Git
 alias gb='git blame'
 alias gc='git commit'
@@ -80,9 +70,6 @@ alias ls="command ls ${colorflag}"
 
 # Always enable colored `grep` output
 alias grep='grep --color=auto'
-
-# Update all the things
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; pip install --upgrade pip'
 
 # Flush DNS
 alias flushdns="dscacheutil -flushcache && killall -HUP mDNSResponder"
