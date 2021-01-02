@@ -15,6 +15,7 @@ alias dm='docker-machine'
 alias dx='docker exec -it'
 alias dc-dev='docker-compose -f docker-compose-dev.yml'
 alias dc-prod='docker-compose -f docker-compose-prod.yml'
+alias dc-sql='docker-compose run --rm --no-deps postgres psql -h postgres -U postgres -c '
 
 # Screen
 alias screen-list="screen -ls"
@@ -87,3 +88,7 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && kil
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+# Until https://github.com/sindresorhus/pure/issues/455#issuecomment-554733553
+# gets resolved, this will restart the git branch status when it gets stuck.
+alias fixpure='prompt_pure_async_init=0; async_stop_worker prompt_pure'
