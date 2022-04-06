@@ -38,8 +38,8 @@ SYMLINKS = (
 
 
 POST_COMMANDS = (
-    # Install zgen
-    'git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"',
+    # Install zplug
+    'curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh',
     # Install Vim packages via vundle.
     'vim +PluginInstall +qall',
 )

@@ -1,38 +1,31 @@
 zmodload zsh/zprof
 
-source "${HOME}/.zgen/zgen.zsh"
+source "${HOME}/.zplug/init.zsh"
 
-# if the init scipt doesn't exist
-if ! zgen saved; then
-    echo "Creating a zgen save"
+# plugins
+zplug zsh-users/zsh-autosuggestions
+zplug zsh-users/zsh-syntax-highlighting
+zplug zsh-users/zsh-completions
+zplug zsh-users/zsh-history-substring-search
 
-    zgen oh-my-zsh
+# theme
+zplug mafredri/zsh-async, from:github
+zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
-    # plugins
-    zgen oh-my-zsh plugins/rust
-    zgen oh-my-zsh plugins/command-not-found
-    zgen oh-my-zsh plugins/docker
-    zgen oh-my-zsh plugins/git
-    zgen oh-my-zsh plugins/heroku
-    zgen oh-my-zsh plugins/history-substring-search
-    zgen oh-my-zsh plugins/npm
-    zgen oh-my-zsh plugins/macos
-    zgen oh-my-zsh plugins/pyenv
-    zgen oh-my-zsh plugins/pip
-    zgen oh-my-zsh plugins/sudo
-
-    # syntax highlighting
-    zgen load zsh-users/zsh-syntax-highlighting
-
-    # completions
-    zgen load zsh-users/zsh-completions src
-
-    # theme
-    zgen load sindresorhus/pure
-
-    # save all to init script
-    zgen save
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
 fi
+
+# Then, source plugins and add commands to $PATH
+zplug load
+
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 
+
+autoload -Uz compinit
 
 source ~/.aliases
 source ~/.path
@@ -50,7 +43,5 @@ export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
 # Enable Erlang/Elixir shell history
 export ERL_AFLAGS="-kernel shell_history enabled"
 
-# Pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+# Postgres tooling
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
