@@ -18,6 +18,8 @@ SYMLINKS = (
     ('.path', '~/.path'),
     ('.inputrc', '~/.inputrc'),
     ('.hushlogin', '~/.hushlogin'),
+    # Atuin
+    ('.config/atuin/config.toml', '~/.config/atuin/config.toml'),
     # Ag - silver searcher.
     ('.agignore', '~/.agignore'),
     # Git
