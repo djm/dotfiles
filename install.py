@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import subprocess
 import os
@@ -18,6 +18,8 @@ SYMLINKS = (
     ('.path', '~/.path'),
     ('.inputrc', '~/.inputrc'),
     ('.hushlogin', '~/.hushlogin'),
+    # Atuin
+    ('.config/atuin/config.toml', '~/.config/atuin/config.toml'),
     # Ag - silver searcher.
     ('.agignore', '~/.agignore'),
     # Git
@@ -39,7 +41,7 @@ SYMLINKS = (
 
 POST_COMMANDS = (
     # Install zplug
-    '$ curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh',
+    'curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh',
     # Install Vim packages via vundle.
     'vim +PluginInstall +qall',
 )

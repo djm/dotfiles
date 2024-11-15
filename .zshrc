@@ -42,6 +42,8 @@ export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
 
 # Enable Erlang/Elixir shell history
 export ERL_AFLAGS="-kernel shell_history enabled"
+
+# Postgres tooling
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 # Direnv setup
