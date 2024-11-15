@@ -43,3 +43,11 @@ export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
 # Enable Erlang/Elixir shell history
 export ERL_AFLAGS="-kernel shell_history enabled"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+# Direnv setup
+eval "$(direnv hook zsh)"
+export DIRENV_LOG_FORMAT=
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
