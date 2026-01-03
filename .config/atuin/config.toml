@@ -20,6 +20,8 @@ auto_sync = true
 ## set it to 0 to sync after every command
 sync_frequency = "10m"
 
+enter_accept = false
+
 ## address of the sync server
 # sync_address = "https://api.atuin.sh"
 
@@ -29,3 +31,6 @@ search_mode = "fuzzy"
 
 #style = "compact"
 #inline_height = 40
+
+[sync]
+records = true
