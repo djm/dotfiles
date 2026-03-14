@@ -31,7 +31,7 @@ Nix manages CLI tools and system config. Homebrew is reserved for macOS GUI apps
 ### 1. Install Nix
 
 ```sh
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+curl -sSf -L https://install.lix.systems/lix | sh -s -- install
 ```
 
 ### 2. Clone this repo
