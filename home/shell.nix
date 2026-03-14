@@ -197,22 +197,6 @@
     };
   };
 
-  # Atuin - better shell history
-  programs.atuin = {
-    enable = true;
-    enableZshIntegration = true;
-    settings = {
-      dialect = "uk";
-      auto_sync = true;
-      sync_frequency = "10m";
-      enter_accept = false;
-      search_mode = "fuzzy";
-      sync = {
-        records = true;
-      };
-    };
-  };
-
   # fzf - fuzzy finder
   programs.fzf = {
     enable = true;

@@ -37,5 +37,8 @@
     # File association management
     duti
 
+    # Dropbox sync
+    maestral
+
   ];
 }

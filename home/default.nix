@@ -6,6 +6,8 @@
     ./apps/git.nix
     ./apps/ghostty.nix
     ./apps/vim.nix
+    ./apps/atuin.nix
+    ./apps/maestral.nix
   ];
 
   home.username = "djm";
