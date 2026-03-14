@@ -2,3 +2,5 @@
 .vim/.netrwhist
 
 *.pyc
+
+.claude/settings.local.json

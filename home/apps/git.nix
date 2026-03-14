@@ -1,0 +1,97 @@
+{ ... }:
+
+{
+  programs.git = {
+    enable = true;
+
+    signing = {
+      key = "~/.ssh/id_ed25519.pub";
+      signByDefault = true;
+      format = "ssh";
+    };
+
+    settings = {
+      user = {
+        name = "Darian Moody";
+        email = "mail@djm.org.uk";
+      };
+      alias = {
+        co = "checkout";
+        ci = "commit";
+        st = "status";
+        br = "branch";
+        hist = "log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short";
+        type = "cat-file -t";
+        dump = "cat-file -p";
+        lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit";
+        recent = "for-each-ref --sort=-committerdate --count=20 --format='%(refname:short)' refs/heads/";
+      };
+      color = {
+        diff = "auto";
+        branch = "auto";
+        status = "auto";
+      };
+      core = {
+        autocrlf = "input";
+      };
+      merge = {
+        ff = false;
+      };
+      rerere = {
+        enabled = true;
+      };
+      github = {
+        user = "djm";
+      };
+      hub = {
+        protocol = "ssh";
+      };
+      push = {
+        default = "simple";
+      };
+      commit = {
+        template = "~/.git_commit_msg.txt";
+      };
+      pager = {
+        branch = false;
+        tag = false;
+      };
+      pull = {
+        ff = "only";
+      };
+      init = {
+        defaultBranch = "main";
+      };
+    };
+
+    ignores = [
+      # Editors
+      "*.sw[pon]"
+      "*.#*"
+      ".tern-port"
+      ".vscode"
+      "*.code-workspace"
+
+      # Python
+      "*.pyc"
+      "*.python-version"
+
+      # Search
+      ".agignore"
+
+      # Development
+      ".vagrant"
+      "htmlcov"
+
+      # OS
+      "*.DS_Store"
+
+      # Elixir
+      ".elixir_ls"
+    ];
+  };
+
+  programs.gh = {
+    enable = true;
+  };
+}
