@@ -28,7 +28,9 @@ Nix manages CLI tools and system config. Homebrew is reserved for macOS GUI apps
 
 ## From-scratch setup
 
-### 1. Install Nix
+### 1. Install Nix via Lix
+
+[Lix](https://lix.systems/) is a community fork of the Nix package manager focused on correctness and usability. This installs the Nix engine and CLI tooling needed to evaluate flakes and build the system configuration.
 
 ```sh
 curl -sSf -L https://install.lix.systems/lix | sh -s -- install
@@ -48,9 +50,9 @@ sudo darwin-rebuild switch --flake ~/Source/dotfiles
 
 This will install all packages, configure macOS defaults, set up zsh, and symlink all dotfiles.
 
-### 4. Restart your shell
+### 4. Switch to Ghostty
 
-Open a new terminal session. Everything should be ready.
+Close the current terminal and open [Ghostty](https://ghostty.org/). It was installed in step 3 and is the configured terminal from here on.
 
 ## Post-install setup
 
