@@ -1,3 +1,12 @@
+```
+     _  _
+  __| |(_) _ __ ___
+ / _` || || '_ ` _ \
+| (_| || || | | | | |
+ \__,_|/ ||_| |_| |_|
+     |__/
+```
+
 # dotfiles
 
 macOS system configuration using [nix-darwin](https://github.com/nix-darwin/nix-darwin) and [home-manager](https://github.com/nix-community/home-manager), managed as a single Nix flake.
