@@ -1,10 +1,12 @@
-```
-     _  _
-  __| |(_) _ __ ___
- / _` || || '_ ` _ \
-| (_| || || | | | | |
- \__,_|/ ||_| |_| |_|
-     |__/
+
+            djm's dotfiles                           (c) github.com/djm
+
+
+            macOS :..... PLATFORM .... PROTECTION ........: nix flake
+              zsh :..... SHELL ....... DISC(S) ...........: 0
+          ghostty :..... TERMINAL .... GAME.TYPE .........: dotfiles
+              lix :..... SUPPLIER .... WRITTEN.BY ........: djm
+
 ```
 
 # dotfiles
@@ -30,7 +32,7 @@ macOS system configuration using [nix-darwin](https://github.com/nix-darwin/nix-
         ├── git.nix           # Git config, aliases, SSH signing
         ├── vim.nix           # Vim plugins & settings
         ├── ghostty.nix       # Ghostty terminal config
-        └── maestral.nix      # Dropbox sync (maestral + launchd agent)
+        └── maestral.nix      # Dropbox sync (~/Synced dir + config)
 ```
 
 Nix manages CLI tools and system config. Homebrew is reserved for macOS GUI apps that Nix can't handle. Everything is declarative and reproducible.
@@ -81,11 +83,7 @@ atuin sync
 
 ### Maestral (Dropbox sync)
 
-```sh
-maestral setup
-```
-
-This will walk you through linking your Dropbox account and choosing which folders to sync.
+Open **Maestral.app** from Applications. It will walk you through linking your Dropbox account and choosing which folders to sync.
 
 ## Day-to-day usage
 
