@@ -109,6 +109,10 @@
       show = "defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder";
       hide = "defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder";
 
+      # NFO file viewer - converts CP437 (DOS) encoding to UTF-8 so
+      # block/box-drawing characters render correctly in modern terminals.
+      nfo = "iconv -f CP437 -t UTF-8";
+
       # Misc
       path = "echo -e \${PATH//:/\\\\n}";
 

@@ -10,8 +10,14 @@
       # Uninstall anything installed via brew that isn't listed in this file
       cleanup = "zap";
     };
+    taps = [
+      "homebrew/cask"
+    ];
     casks = [
+      "alt-tab"
+      "claude"
       "cleanshot"
+      "maestral"
       "markedit"
     ];
   };
