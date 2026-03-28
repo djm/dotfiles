@@ -33,6 +33,7 @@
     # Cloud tools
     heroku
     awscli2
+    turso-cli
 
     # File association management
     duti
