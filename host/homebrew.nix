@@ -19,6 +19,7 @@
       "cleanshot"
       "maestral"
       "markedit"
+      "tableplus"
     ];
   };
 }
