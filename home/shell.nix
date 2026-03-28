@@ -197,6 +197,7 @@
       global = {
         # Suppress noisy direnv output
         log_format = "";
+        hide_env_diff = true;
       };
     };
   };
