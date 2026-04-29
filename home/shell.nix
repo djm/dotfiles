@@ -67,6 +67,7 @@
 
       # AI
       c = "claude --dangerously-skip-permissions";
+      cdx = "codex --yolo";
 
       # Python
       clearpyc = "find . -name '*.pyc' -exec rm -rf {} \\;";
@@ -117,7 +118,8 @@
       path = "echo -e \${PATH//:/\\\\n}";
 
       # Nix
-      rebuild-nix = "sudo darwin-rebuild switch --flake ~/Source/dotfiles";
+      dotfiles-apply = "sudo darwin-rebuild switch --flake ~/Source/dotfiles";
+      dotfiles-update = "nix flake update brew-src homebrew-core homebrew-cask macos-fuse-t-homebrew-cask --flake ~/Source/dotfiles && sudo darwin-rebuild switch --flake ~/Source/dotfiles";
     };
 
     # Environment variables

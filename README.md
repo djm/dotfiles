@@ -90,7 +90,15 @@ Open **Maestral.app** from Applications. It will walk you through linking your D
 After making changes to any `.nix` file:
 
 ```sh
-rebuild-nix
+dotfiles-apply
 ```
 
 This is an alias for `sudo darwin-rebuild switch --flake ~/Source/dotfiles`.
+
+To refresh the pinned Homebrew tap inputs first, then rebuild:
+
+```sh
+dotfiles-update
+```
+
+This updates `brew-src`, `homebrew-core`, `homebrew-cask`, and `macos-fuse-t-homebrew-cask` in `flake.lock`, then runs the same Darwin rebuild.

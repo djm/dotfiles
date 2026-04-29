@@ -15,13 +15,24 @@
     };
 
     # Manage Homebrew installation via Nix
-    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+    brew-src = {
+      url = "github:Homebrew/brew";
+      flake = false;
+    };
+    nix-homebrew = {
+      url = "github:zhaofengli/nix-homebrew";
+      inputs.brew-src.follows = "brew-src";
+    };
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
       flake = false;
     };
     homebrew-cask = {
       url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+    macos-fuse-t-homebrew-cask = {
+      url = "github:macos-fuse-t/homebrew-cask";
       flake = false;
     };
   };
@@ -34,7 +45,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.backupFileExtension = "backup";
+          home-manager.backupFileExtension = "backup-${self.sourceInfo.lastModifiedDate or "0"}";
           home-manager.users.djm = import ./home;
         }
         nix-homebrew.darwinModules.nix-homebrew
@@ -45,6 +56,7 @@
             taps = {
               "homebrew/homebrew-core" = inputs.homebrew-core;
               "homebrew/homebrew-cask" = inputs.homebrew-cask;
+              "macos-fuse-t/homebrew-cask" = inputs.macos-fuse-t-homebrew-cask;
             };
             mutableTaps = false;
           };
